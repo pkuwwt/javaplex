@@ -1,0 +1,14 @@
+#summary Overview of the javaPlex project.
+
+= Welcome to javaPlex =
+
+javaPlex is the newest member of the family of persistent homology computation libraries developed at Stanford. The impetus for developing javaPlex was a perceived lack of flexibility in the predecessor, jPlex. While jPlex is (and remains) a really fast library, the optimizations used made it hard to extend the library to new tasks.
+
+In addition to keeping extensibility as a watchword through the development, javaPlex is released under a BSD license, and we encourage other researchers and hobbyists in persistent homology and computational topology to submit suggestions and patches to extend javaPlex further.
+
+= Where to go from here? =
+
+* Download the software
+* Read the tutorial and the documentation
+* Compute your own barcodes
+* Create your own extensions
