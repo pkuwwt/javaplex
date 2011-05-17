@@ -1,0 +1,5 @@
+#summary javaPlex tutorial.
+
+= Preface = 
+
+This page will hold the tutorial for javaPlex that Henry Adams is working on, in a wikified and web-readable form. So far, it is mainly a place-holder, but this should change shortly.
