@@ -1,0 +1,7 @@
+#summary Notes on the architecture of javaPlex.
+#labels Phase-Design
+
+= Introduction =
+
+These notes are meant to give an overview of the chosen architecture of javaPlex: which classes inherit from which, which classes carry which functionality, and how the entire package sticks together.
+
