@@ -1,0 +1,28 @@
+#summary Calling javaPlex from other languages
+
+= Introduction =
+
+`javaPlex` can be called from any Java-based system. Below we show some examples.
+
+= Matlab = 
+
+As in the load_javaplex.m file in the matlab examples, one may use the following:
+
+{{{
+javaaddpath('/path/to/javaplex.jar');
+import edu.stanford.math.plex4.*;
+}}}
+
+= Jython =
+
+Similarly, from Jython one may use the following:
+
+Invocation:
+{{{
+CLASSPATH=$CLASSPATH:/path/to/javaplex.jar jython
+}}}
+
+Loading javaPlex:
+{{{
+from edu.stanford.math.plex4 import *
+}}}
