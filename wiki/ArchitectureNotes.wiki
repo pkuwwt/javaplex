@@ -5,3 +5,18 @@
 
 These notes are meant to give an overview of the chosen architecture of javaPlex: which classes inherit from which, which classes carry which functionality, and how the entire package sticks together.
 
+= Overall Structure =
+
+In a nutshell, the two main capabilities of javaPlex are:
+  * the computation of the persistent homology of filtered chain complexes of finite vector spaces
+  * the automated construction of filtered complexes from geometric data
+While it is expected that most of the use of javaPlex will be for computing the simplicial homology of complexes through constructions such as the Vietoris-Rips and witness definitions, its internal structure is built in a way that anticipates further extensions. We will discuss such such extensions towards the end of the document. 
+
+In this document we describe the implementation of the above two functionalities. Note that we do not discuss background information on filtered complexes, persistent homology and similar topics here. 
+
+= Fundamental Interfaces and Classes =
+
+Let us start with the `AbstractFilteredStream` interface. This essentially abstracts the notion of a filtered chain complex of finite dimensional vector spaces. As with the mathematical notion of a chain complex, it defines both the terms in the complex (the vector spaces) as well as the connecting morphisms (the boundary maps) as follows:
+  * Access to the basis elements for the terms in the filtered complex are provided through an iterator. In particular, this interface extends the Iterable interface which allows for convenient iteration. Implementing classes must provide the basis elements for the filtered complex in increasing order, where the ordering is lexicographical first on the filtration index, and then on the dimension. 
+  * The boundary operators are provided by the getBoundary and getBoundaryCoefficients functions, which return the basis elements in the boundary as well as the coefficients. 
+  * An implementation of the `AbstractFilteredStream` interface must also provide methods for obtaining the filtration index and homological dimension of the 
