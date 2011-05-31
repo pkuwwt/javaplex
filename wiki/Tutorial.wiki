@@ -1,7 +1,910 @@
 #summary javaPlex tutorial.
+#labels Featured
 
 = Tutorial = 
 
 The current version of the tutorial for javaPlex may be found <a href="http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/javaplex_tutorial.pdf">here</a>. It is still under development.
 
 The pdf version of the tutorial will be placed in the downloads section as soon as it is ready.
+
+= Introduction =
+
+
+== javaPlex ==
+
+javaPlex is a Java software package for computing the persistent homology of filtered chain complexes, with special emphasis on applications arising in topological data analysis. The main author is Andrew Tausz. javaPlex is a re-write of the JPlex package, which was written by Harlan Sexton and Mikael Vejdemo Johansson. The main motivation for the development of javaPlex was the need for a flexible platform that supported new directions of research in topological data analysis and computational persistent homology. The website for javaPlex is http://code.google.com/p/javaplex/ and the javadoc tree for the library is at http://javaplex.googlecode.com/svn/trunk/doc/index.html .
+
+If you are interested in javaPlex, then you may also be interested in the software package Dionysus by Dmitriy Morozov, available at http://www.mrzv.org/software/dionysus .
+
+Some of the exercises in this tutorial are borrowed from Vin de Silva's _Plexercises_, available at http://comptop.stanford.edu/u/programs/Plexercises2.pdf .
+
+
+== License ==
+
+javaPlex is an open source software package under the Open BSD License. The source code can be found at http://code.google.com/p/javaplex/ . If you are interested in contributing to the project, we invite you to contact either of the authors.
+
+
+== Installation for Matlab ==
+
+Open Matlab and check which version of Java is being used. In this tutorial, the symbol `>>` precedes commands to enter into your Matlab window.
+{{{
+>> version -java 
+ans = Java 1.5.0_13 with Apple Inc.   Java Hotspot(TM) Client VM mixed mode, sharing
+}}}
+
+javaPlex requires version number `1.5` or higher.
+
+To install javaPlex for Matlab, go the the website http://code.google.com/p/javaplex/downloads/list. Download the zip file containing the Matlab examples. It should be called something like `matlab-examples-4.01.tar.gz`.
+Extract the zip file. The resulting folder should be called `matlab-examples`. 
+
+Change directories in Matlab  to `matlab-examples`. Run the `load_javaplex.m` file. 
+{{{
+>> load_javaplex
+}}}
+Installation is complete. Confirm that javaPlex is working properly with the following command.
+{{{
+>> api.Plex4.createExplicitSimplexStream() 
+ans = edu.stanford.math.plex4.streams.impl.ExplicitSimplexStream@513fd4
+}}}
+Your output should be the same except for the last several characters.
+ 
+Each time upon starting a new Matlab session, you will need to run `load_javaplex.m`.
+
+
+== Accompanying files ==
+
+Matlab scripts containing the commands in this tutorial are available in the folder `matlab_examples/tutorial_examples`. This means you don't need to type in each command individually. The command scripts are the following.
+
+  * `core_subsets_example.m`
+  * `euler_characteristic_example.m`
+  * `explicit_metric_space.m`
+  * `explicit_simplex_example.m`
+  * `house_example.m`
+  * `image_patch_examples.m`
+  * `landmark_example.m`
+  * `lazy_witness_example.m`
+  * `pointcloud_examples.m`
+  * `rips_example.m`
+  * `witness_example.m`
+
+This tutorial also uses the following Matlab functions
+
+  * `coreSubset.m`
+  * `dct.m`
+  * `eulerCharacteristic.m`
+
+and following Matlab data files, also available in the folder `matlab_examples/tutorial_examples`.
+
+  * `pointsRange.mat`
+  * `pointsTorusGrid.mat`
+
+The folder `matlab_examples/tutorial_solutions` contains the following solution scripts to tutorial exercises.
+
+  * `exercise_3_1_1.m`
+  * `exercise_3_1_2.m`
+  * `exercise_3_1_3.m`
+  * `exercise_5_1_2.m`
+  * `exercise_5_1_3.m`
+
+
+
+
+= Math review =
+
+Below is a brief math review. For more details, see 
+  * Armstrong: _Basic Topology_
+  * Edelsbrunner-Harer: _Computational Topology_
+  * Hatcher: _Algebraic Topology_
+  * Zomorodian-Carlsson: _Computing persistent homology_
+
+== Simplicial complexes ==
+
+An abstract simplicial complex is given by the following data.
+
+  * A set _Z_ of vertices or 0-simplices.
+  * For each _k≥1_, a set of _k_-simplices _s=[z,,0,,,z,,1,,,…,z,,k,,]_, where _z,,i,,_ is in _Z_.
+  * Each _k_-simplex has _k+1_ faces obtained by deleting one of the vertices. The following membership property must be satisfied: if _s_ is in the simplicial complex, then all faces of _s_ must be in the simplicial complex.
+
+We think of 0-simplices as vertices, 1-simplices as edges, 2-simplices as triangular faces, and 3-simplices as tetrahedrons. 
+
+
+== Homology ==
+
+Betti numbers help describe the homology of a simplicial complex _X_. The value _Betti,,k,,_, where _k_ is a natural number, is equal to the rank of the _k_-th homology group of _X_. Roughly speaking, _Betti,,k,,_ gives the number of _k_-dimensional holes. In particular, _Betti,,0,,_ is the number of connected components. For instance, a _k_-dimensional sphere has all Betti numbers equal to zero except for _Betti,,0,, = Betti,,k,, = 1_. 
+
+
+== Filtered simplicial complexes ==
+
+A filtration on a simplicial complex _X_ is a collection of subcomplexes _X(t)_ of _X_ for real values of _t_ such that _X(t)_ is a subcomplx of _X(s)_ whenever _t ≤ s_. The filtration time of a simplex _s_ in _X_ is the smallest _t_ such that _s_ is in _X(t)_. In javaPlex, filtered simplicial complexes (or more generally filtered chain complexes) are called streams. 
+
+== Persistent homology ==
+
+Betti intervals help describe how the homology of _X(t)_ changes with _t_. A _k_-dimensional Betti interval, with endpoints [_t,,start,,_, _t,,end,,_), corresponds roughly to a _k_-dimensional hole that appears at filtration time _t,,start,,_, remains open for _t,,start,, ≤ t < t,,end,,_, and closes at time _t,,end,,_. We are often interested in Betti intervals that persist for a long filtration range. 
+
+Persistent homology depends heavily on functoriality: for _t ≤ s_, the inclusion _i:X(t) -> X(s)_ of simplicial complexes induces a map _i,,*,,:H,,k,,(X(t)) -> H,,k,,(X(s))_ between homology groups. 
+
+
+
+
+= Explicit simplex streams =
+
+In javaPlex, filtered simplicial complexes (or more generally filtered chain complexes) are called streams. The class `ExplicitSimplexStream` allows one to build a simplicial complex from scratch. In [Tutorial#Streams_from_point_cloud_data Streams from point cloud data] we will learn about other automated methods of generating simplicial complexes; namely the Vietoris-Rips, witness, and lazy witness constructions. 
+
+
+== Explicit simplex streams and homology ==
+
+The Matlab script corresponding to this section is `explicit_simplex_example.m`, which is in the folder `tutorial_examples`. You may copy and paste commands from this script into the Matlab window, or you may run the entire script at once with the following command.
+{{{
+>> explicit_simplex_example
+}}}
+
+
+
+_Circle example._ Let's build a simplicial complex homeomorphic to a circle. We have three 0-simplices: [0], [1], and [2], and three 1-simplices: [0,1], [0,2], [1,2].
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/s1.png
+
+To build a simplicial complex in javaPlex we simply build a stream in which all filtration times are zero. First we create an empty explicit simplex stream. Many command lines in this tutorial will end with a semicolon to supress unwanted output.
+{{{
+>> stream = api.Plex4.createExplicitSimplexStream();
+}}}
+
+Next we add simplicies using the methods `addVertex` and `addElement`. The first creates a vertex with a specified index, and the second creates a _k_-simplex (for _k >0_) with the specified array of vertices. Since we don't specify any filtration times, by default all added simplices will have filtration time zero.
+
+{{{
+>> stream.addVertex(0);
+>> stream.addVertex(1);
+>> stream.addVertex(2);
+>> stream.addElement([0, 1]);
+>> stream.addElement([0, 2]);
+>> stream.addElement([1, 2]);
+}}}
+
+We print the total number of simplices in the complex.
+{{{
+>> num_simplices = stream.getSize()
+num_simplices = 6
+}}}
+
+In order to compute the homology of our complex, we first create an object that will perform the computation. The following line obtains the default algorithm for performing simplicial homology. There are other variants on the persistence algorithm, and one can also change the ground field. This default object will perform the homology computation over the field with 2 elements. The input parameter 3 indicates that homology will be computed in dimensions 0, 1, and 2 — that is, in all dimensions strictly less than 3.
+{{{
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(3);
+}}}
+We compute and print the intervals.
+{{{
+>> triangle_intervals = persistence.computeIntervals(stream) 
+triangle_intervals = 
+
+Dimension: 1 
+[0, infinity) 
+Dimension: 0 
+[0, infinity)
+}}}
+This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,1,,=1_.
+
+_9-sphere example._ Let's build a 9-sphere, which is homeomorphic to the boundary of a 10-simplex. First we add a single 10-simplex to an empty explicit simplex stream. The result is not a simplicial complex because it does not contain the faces of the 10-simplex. We add all faces using the method `ensureAllFaces`. Then, we remove the 10-simplex using the method `removeElementIfPresent`. What remains is the boundary of a 10-simplex, that is, a 9-sphere.
+
+{{{
+>> dimension = 9; 
+>> stream = api.Plex4.createExplicitSimplexStream(); 
+>> stream.addElement(0:(dimension + 1)); 
+>> stream.ensureAllFaces(); 
+>> stream.removeElementIfPresent(0:(dimension + 1)); 
+>> stream.finalizeStream(); 
+}}}
+
+In the above, the `finalizeStream` function is used to ensure that the stream has been fully constructed and is ready for consumption by a persistence algorithm. Note that it can be omitted in the case where the additions are done in increasing order. However, it should be used in general. 
+
+We print the total number of simplices in the complex.
+{{{
+>> num_simplices = stream.getSize()
+num_simplices = 2046
+}}}
+
+We get the default persistence computation
+{{{
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(dimension + 1);
+}}}
+and compute and print the intervals.
+{{{
+>> n_sphere_intervals = persistence.computeIntervals(stream) 
+n_sphere_intervals = 
+
+Dimension: 9
+[0, infinity)
+Dimension: 0
+[0, infinity)
+}}}
+This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,9,,=1_. 
+
+_Exercise_: 
+Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
+
+
+_Exercise_:
+Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
+
+
+_Exercise_:
+Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
+
+
+
+== Explicit simplex streams and persistent homology ==
+
+Let's build a stream with nontrivial filtration times. 
+
+_House example._ The Matlab script corresponding to this section is `house_example.m`.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house.png
+
+We build a house, with the vertices and edges on the square appearing at time 0, with the top vertex appearing at time 1, with the roof edges appearing at times 2 and 3, and with the roof 2-simplex appearing at time 7.
+{{{
+>> stream = api.Plex4.createExplicitSimplexStream(); 
+>> stream.addVertex(1, 0); 
+>> stream.addVertex(2, 0); 
+>> stream.addVertex(3, 0); 
+>> stream.addVertex(4, 0); 
+>> stream.addVertex(5, 1); 
+>> stream.addElement([1, 2], 0); 
+>> stream.addElement([2, 3], 0); 
+>> stream.addElement([3, 4], 0); 
+>> stream.addElement([4, 1], 0); 
+>> stream.addElement([3, 5], 2); 
+>> stream.addElement([4, 5], 3); 
+>> stream.addElement([3, 4, 5], 7);
+}}}
+We get the default persistence computation,
+{{{
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(3);
+}}}
+compute the intervals,
+{{{
+>> filtration_index_intervals = persistence.computeIntervals(stream);
+}}}
+and transform the integral intervals to floating point intervals.
+{{{
+>> transformer = homology.filtration.IdentityConverter.getInstance(); 
+>> filtration_value_intervals = transformer.transform(filtration_index_intervals) 
+filtration_value_intervals =
+
+Dimension: 1
+[3.0, 7.0)
+[0.0, infinity)
+Dimension: 0
+[1.0, 2.0)
+[0.0, infinity)
+}}}
+There are four intervals. The first is a _Betti,,1,,_ interval, starting at filtration time 3 and ending at 7. This 1-dimensional hole is formed by the three edges of the roof. It forms when edge _[4,5]_ appears at filtration time 3 and closes when 2-simplex _[3,4,5]_ appears at filtration time 7.
+
+One _Betti,,0,,_ interval and one _Betti,,1,,_ interval are semi-infinite. 
+{{{
+>> infinite_barcodes = filtration_value_intervals.getInfiniteIntervals();
+}}}
+We can print the Betti numbers (at the largest filtration time 7) as an array
+{{{
+>> betti_numbers_array = infinite_barcodes.getBettiSequence()
+}}}
+
+or as a list with entries of the form _k: Betti,,k_.
+{{{
+>> betti_numbers_string = infinite_barcodes.getBettiNumbers()
+betti_numbers_string = {0: 1, 1: 1}
+}}}
+
+The method `createBarcodePlot` lets us display the intervals as a Betti barcode. The three inputs are `filtration_value_intervals`, a string for the filename, and the maximum filtration time (which may be adjusted _± 10%_) for the plot. 
+{{{
+>> api.Plex4.createBarcodePlot(filtration_value_intervals, 'house', 8)
+}}}
+The files `house_0.PNG` and `house_1.PNG` are saved to your current directory.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house_1.PNG
+
+The filtration times are on the horizontal axis. The _Betti_k_ number of the stream at filtration time _t_ is the number of intervals in the dimension _k_ plot that intersect a vertical line through _t_. Check that the displayed intervals agree with the filtration times we built into the house stream. At time 0, a connected component and a 1-dimensional hole form. At time 1, a second connected component appears, which joins to the first at time 2. A second 1-dimensional hole forms at time 3, and closes at time 7. 
+
+An important remark is that the methods `addElement` and `removeElementIfPresent` do not necessarily enforce the definition of a stream. They allow us to build inconsistent complexes in which some simplex _s_ in _X(t)_ contains a subsimplex _s'_ not in _X(t)_, meaning that _X(t)_ is not a simplicial complex. The method `validateVerbose` returns `1` if our stream is consistent and returns `0` with explanation if not. 
+{{{
+>> stream.validateVerbose() 
+ans = 1 
+>> stream.addElement([1, 4, 5], 0); 
+>> stream.validateVerbose() 
+Filtration index of face [4,5] exceeds that of element [1,4,5] (3 > 0) 
+Stream does not contain face [1,5] of element [1,4,5] 
+ans = 0
+}}}
+
+
+= Point cloud data =
+
+A point cloud is a finite metric space, that is, a finite set of points equipped with a notion of distance. One can create a Euclidean metric space by specifying the coordinates of points in Euclidean space, or one can create an explicit metric space by specifying all pairwise distances between points. In [Tutorial#Streams_from_point_cloud_data Streams from point cloud data] we will learn how to build streams from point cloud data. 
+
+== Euclidean metric spaces ==
+
+ The Matlab script corresponding to this section is `pointcloud_examples.m`. 
+
+_House example._ Let's give Euclidean coordinates to the points of our house.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/houseCoord.png
+
+You can enter these coordinates manually.
+{{{
+>> point_cloud = [-1,0; 1,0; 1,2; -1,2; 0,3]
+}}}
+
+Or, these coordinates are stored as a javaPlex example.
+{{{
+>> point_cloud = examples.PointCloudExamples.getHouseExample();
+}}}
+
+We create a metric space using these coordinates. The input to the `EuclideanMetricSpace` method is a matrix whose _i-th row lists the coordinates of the _i_-th point.
+{{{
+>> m_space = metric.impl.EuclideanMetricSpace(point_cloud);
+}}}
+We can return the coordinates of a specific point. Note the points are indexed starting at 0.
+{{{
+>> m_space.getPoint(0)
+ans =
+  -1
+   0
+}}}
+
+{{{
+>> m_space.getPoint(2)
+ans =
+   1
+   2
+}}}
+
+A metric space can return the distance between any two points.
+{{{
+>> m_space.distance(m_space.getPoint(0), m_space.getPoint(2))
+ans = 2.8284
+}}}
+
+_Figure 8 example._ We select 1,000 points randomly from a figure eight, that is, the union of unit circles centered at _(0,1)_ and _(0,-1)_.
+{{{
+>> point_cloud = examples.PointCloudExamples.getRandomFigure8Points(1000);
+}}}
+We plot the points.
+{{{
+>> figure
+>> plot(point_cloud(:,1), point_cloud(:,2), '.')
+>> axis equal
+}}}
+
+_Torus example._ We select 2,000 points randomly from a torus in _R^3^$ with inner radius 1 and outer radius 2. The first input is the number of points, the second input is the inner radius, and the third input is the outer radius
+{{{
+>> point_cloud = examples.PointCloudExamples.getRandomTorusPoints(2000, 1, 2);
+}}}
+We plot the points.
+{{{
+>> figure
+>> plot3(point_cloud(:,1), point_cloud(:,2), point_cloud(:,3), '.')
+>> axis equal
+}}}
+
+_Sphere product example._ We select 1,000 points randomly from the unit torus _S^1^ x S^1^_ in _R^4^_. The first input is the number of points, the second input is the dimension of each sphere, and the third input is the number of sphere factors.
+{{{
+>> point_cloud = examples.PointCloudExamples.getRandomTorusPoints(1000, 1, 2);
+}}}
+Plotting the third and fourth coordinates of each point shows a circle _S^1^_.
+{{{
+>> figure
+>> plot(point_cloud(:,3), point_cloud(:,4), '.')
+>> axis equal
+}}}
+
+
+== Explicit metric spaces ==
+
+We can also create a metric space from a distance matrix using the method `ExplicitMetricSpace`. For a point cloud in Euclidean space, this method is generally less convenient than the command `EuclideanMetricSpace`. However, method `ExplicitMetricSpace` can be used for a point cloud in an arbitrary (perhaps non-Euclidean) metric space. 
+
+The Matlab script corresponding to this section is `explicit_metric_space.m`. 
+
+_House example._ The matrix `distances` summarizes the metric for our house points above: entry _(i,j)_ is the distance from point _i_ to point _j_. 
+
+{{{
+>> distances = [0,2,sqrt(8),2,sqrt(10);
+                2,0,2,sqrt(8),sqrt(10);
+                sqrt(8),2,0,2,sqrt(2);
+                2,sqrt(8),2,0,sqrt(2);
+                sqrt(10),sqrt(10),sqrt(2),sqrt(2),0]
+
+distances =
+
+
+0  2.0000  2.8284  2.0000  3.1623
+2.0000  0  2.0000  2.8284  3.1623
+2.8284  2.0000  0  2.0000  1.4142
+2.0000  2.8482  2.0000  0  1.4142
+3.1623  3.1623  1.4142  1.4142  0
+}}}
+
+We create a metric space from this distance matrix. 
+{{{
+>> m_space = metric.impl.ExplicitMetricSpace(distances);
+}}}
+We return the distance between points 0 and 2.
+{{{
+>> m_space.distance(m_space.getPoint(0), m_space.getPoint(2)) 
+ans = 2.8284 
+}}}
+
+
+
+
+= Streams from point cloud data =
+
+
+In [Tutorial#Explicit_simplex_streams Explicit simplex streams] we built streams explicitly, or by hand. In this section we construct streams from a point cloud _Z_. We build Vietoris-Rips, witness, and lazy witness streams. See de Silva-Carlsson (2004) for additional information. 
+
+The Vietoris-Rips, witness, and lazy witness streams all take three of the same inputs: the maximum dimension _d,,max,,_, the maximum filtration time _t,,max,,_, and the number of divisions _N_. These inputs allow the user to limit the size of the constructed stream, for computational efficiency. No simplices above dimension _d,,max,,_ are included. The persistent homology of the resulting stream can be calculated only up to dimension _d,,max,, - 1_ (do you see why?). Also, instead of computing complex _X(t)_ for all _t ≥ 0_, we only compute _X(t)_ for _t_ in _{0, t,,max,,/(N-1), 2t,,max,,/(N-1), 3t,,max,,/(N-1), ..., (N-2)t,,max,,/(N-1), t,,max,, }_.
+
+The number of divisions _N_ is an optional input. If this input parameter is not specified, then the default value _N = 20_ is used. 
+
+When working with a new dataset, don't choose _d,,max,,_ and _t,,max,,_ too large initially. First get a feel for how fast the complexes are growing, and then raise _d,,max,,_ and _t,,max,,_ nearer to the computational limits. If you ever choose _d,,max,,_ or _t,,max,,_ too large and Matlab seems to be running forever, pressing the ``control'' and ``c'' buttons simultaneously may halt the computation. 
+
+
+== Vietoris-Rips streams ==
+
+Let _d(-,-)_ denote the distance between two points in metric space _Z_. A natural stream to build is the Vietoris-Rips stream. The complex _VR(Z,t)_ is defined as follows: 
+
+  * the vertex set is _Z_.
+  * for vertices _a_ and _b_, edge _[ab]_ is in VR_(Z,t)_ if _d(a,b) ≤ t_.
+  * a higher dimensional simplex is in VR_(Z,t)_ if all of its edges are.
+
+Note that _VR(Z,t)_ is a subcomplex of _VR(Z,s)_ whenever _t≤ s_, so the Vietoris-Rips stream is a filtered simplicial complex. Since a Vietoris-Rips complex is the maximal simplicial complex that can be built on top of its 1-skeleton, it is a _flag complex_. 
+
+The Matlab script corresponding to this section is `rips_example.m`. 
+
+_House example._ Let's build a Vietoris-Rips stream from the house point cloud in [Tutorial#Euclidean_metric_spaces Euclidean metric spaces]. Note this stream is different than the explicit stream we built in [Tutorial#Explicit_simplex_streams_and_homology Explicit simplex streams and homology].
+{{{
+>> max_dimension = 3; 
+>> max_filtration_value = 4; 
+>> num_divisions = 100; 
+
+>> point_cloud = examples.PointCloudExamples.getHouseExample(); 
+>> stream = api.Plex4.createVietorisRipsStream(point_cloud, max_dimension,  % overflow
+max_filtration_value, num_divisions);
+}}}
+The order of the inputs is `createVietorisRipsStream`(_Z_,_d,,max_,,_,_t,,max,,_,_N_). For a Vietoris-Rips stream, the parameter _t,,max,,_ is the maximum possible edge length. Since _t,,max,, = 4_ is greater than the diameter (_√10_) of our point cloud, all edges will eventually form. 
+
+Since _d,,max = 3_ we can compute up to second dimensional persistent homology. 
+{{{
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> filtration_index_intervals = persistence.computeIntervals(stream); 
+>> filtration_value_intervals = stream.transform(filtration_index_intervals);
+}}}
+We display the Betti intervals. Typically the last input for the method `createBarcodePlot` will be _t,,max,,_, since there is no reason to display filtration times that we haven't computed.
+{{{
+>> api.Plex4.createBarcodePlot(filtration_value_intervals, 'ripsHouse', max_filtration_value)
+}}}
+The files `ripsHouse_0.PNG` and `ripsHouse_1.PNG` are saved to your current directory.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_1.PNG
+
+The second dimensional Betti plot does not appear because there are no _Betti,,2,,_ intervals. Check that these plots are consistent with the Vietoris-Rips definition: edges _[3,5]_ and _[4,5]_ appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
+
+_Remark._ We can build Vietoris-Rips streams not only on top of Euclidean point clouds, but also on top of explicit metric spaces. For example, if `m_space` is an explicit metric space, then we may call a command such as
+{{{
+>> stream = api.Plex4.createVietorisRipsStream(m_space, max_dimension,  % overflow
+max_filtration_value, num_divisions);  
+}}}
+
+
+_Torus example._ Try the following sequence of commands. We start with 400 points from a _20 x 20_ grid on the unit torus _S^1^ x S^1^_ in _R^4^_, and add a small amount of noise to each point.
+
+We build the Vietoris-Rips stream.
+{{{
+>> max_dimension = 3; 
+>> max_filtration_value = 0.9; 
+>> num_divisions = 100;
+}}}
+Load the file `pointsTorusGrid.mat`. The matrix `pointsTorusGrid` appears in your Matlab workspace.
+{{{
+>> load pointsTorusGrid.mat 
+>> point_cloud = pointsTorusGrid; 
+>> size(point_cloud) 
+ans = 400    4         # 400 points in dimension 4
+
+>> stream = api.Plex4.createVietorisRipsStream(point_cloud, max_dimension,  % overflow
+max_filtration_value, num_divisions);  
+>> num_simplices = stream.getSize() 
+num_simplices = 82479 
+
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> filtration_index_intervals = persistence.computeIntervals(stream); 
+>> filtration_value_intervals = stream.transform(filtration_index_intervals); 
+>> api.Plex4.createBarcodePlot(filtration_value_intervals, 'ripsTorus', max_filtration_value)
+}}}
+The files `ripsTorus_0.PNG`, `ripsTorus_1.PNG` and `ripsTorus_2.PNG` are saved to your current directory. We do not show these figures because the plots are very tall. 
+
+The diameter of this torus (before adding noise) is _√8_, so choosing _t,,max,, = 0.9_ likely will not show all homological activity. However, the torus will be reasonably connected by this time. Note the semi-infinite intervals match the correct numbers _Betti,,0,, = 1_, _Betti,,1,, = 2_, _Betti,,2,, = 1_ for a torus.
+
+{{{
+>> infinite_barcodes = filtration_value_intervals.getInfiniteIntervals(); 
+>> betti_numbers_array = infinite_barcodes.getBettiSequence()
+betti_numbers_array =
+
+   1
+   2
+   1
+}}}
+
+This example makes it clear that the computed ``semi-infinite'' intervals do not necessarily persist until _t = ∞_: in a Vietoris-Rips stream, once _t_ is greater than the diameter of the point cloud, the Betti numbers for _VR(Z,t)_ will be _ Betti,,0,, = 1_, _Betti,,1,, = Betti,,2,, = ... = 0_. The computed semi-infinite intervals are merely those that persist until _t = t,,max,,_. 
+
+_Exercise_:
+Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the size of the Vietoris-Rips stream and the time of computation grow. Either increasing _t,,max,,_ from 0.9 to 1 or _d,,max,,_ from 3 to 4 each roughly doubles the size of the Vietoris-Rips stream. 
+
+_Exercise_:
+Find a planar dataset _Z_ and a filtration value _t_ such that _Betti,,2,,(VR(Z,t))≠0_. Build a Vietoris-Rips stream to confirm your answer. 
+
+
+_Exercise_:
+Find a planar dataset _Z_ and a filtration value _t_ such that _Betti,,6,,(VR(Z,t))≠0_. When building a Vietoris-Rips stream to confirm your answer, don't forget to choose _d,,max,, = 7_. 
+
+
+
+== Landmark selection ==
+
+For larger datasets, if we include every data point as a vertex, as in the Vietoris-Rips construction, our streams will quickly contain too many simplices for efficient computation. The witness stream and the lazy witness stream address this problem. In building these streams, we select a subset _L_ of _Z_, called landmark points, as the only vertices. All data points in _Z_ help serve as witnesses for the inclusion of higher dimensional simplices. 
+
+There are two common methods for selecting landmark points. The first is to choose the landmarks _L_ randomly from point cloud _Z_. The second is a greedy inductive selection process called sequential maxmin. In sequential maxmin, the first landmark is picked randomly from _Z_. Inductively, if _L,,i-1,,_ is the set of the first _i-1_ landmarks, then let the _i_-th landmark be the point of _Z_ which maximizes the function _z -> d(z, L,,i-1,,)_, where _d(z, L,,i-1,,)_ is the distance between point _z_ and set _L,,i-1,,_. 
+
+Landmarks chosen using sequential maxmin tend to cover the dataset and to be spread apart from each other. A disadvantage is that outlier points tend to be selected. Sequential maxmin landmarks are used in Adams-Carlsson (2009) and Carlsson-Ishkanov-de Silva-Zomorodian (2008). 
+
+The Matlab script corresponding to this section is `landmark_example.m`.
+
+_Figure 8 example._ We create a point cloud of 1,000 points from a figure eight.
+{{{
+>> point_cloud = examples.PointCloudExamples.getRandomFigure8Points(1000);
+}}}
+
+We create both a random landmark selector and a sequential maxmin landmark selector. These selectors will pick 100 landmarks.
+{{{
+>> num_landmark_points = 100; 
+>> random_selector = api.Plex4.createRandomSelector(point_cloud, num_landmark_points); 
+>> maxmin_selector = api.Plex4.createMaxMinSelector(point_cloud, num_landmark_points);
+}}}
+
+We select 100 random landmarks and 100 landmarks via sequential maxmin. Note we need to increment the indices by 1 since Java uses 0-based arrays.
+{{{
+>> num_landmark_points = 100; 
+>> random_points = point_cloud(random_selector.getLandmarkPoints() + 1, :); 
+>> maxmin_points = point_cloud(maxmin_selector.getLandmarkPoints() + 1, :);
+}}}
+
+We plot the two sets of landmark points to see the difference between random and sequential maxmin landmark selection.
+
+{{{
+>> subplot(1, 2, 1); 
+>> scatter(random_points(:,1), random_points(:, 2));
+>> title('Random landmark selection'); 
+>> subplot(1, 2, 2); 
+>> scatter(maxmin_points(:,1), maxmin_points(:, 2)); 
+>> title('Maxmin landmark selection');
+}}}
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/fig8lands.PNG
+
+Sequential maxmin seems to do a better job of choosing landmarks that cover the figure eight and that are spread apart. 
+
+_Remark._ We can select landmark points not only from Euclidean point clouds but also from explicit metric spaces. For example, if _m_space_ is an explicit metric space, then we may select landmarks using a command such as the following.
+{{{
+>> maxmin_selector = api.Plex4.createMaxMinSelector(m_space, num_landmark_points); 
+}}}
+
+Given point cloud _Z_ and landmark subset _L_, we define `R` = _max,,z,,_ in Z{d(z,L)}_. Number _R_ reflects how finely the landmarks cover the dataset. We often use it as a guide for selecting the maximum filtration value _t,,max,,_ for a witness or lazy witness stream. 
+
+_Exercise_:
+Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Suppose we are using sequential maxmin to select a set _L_ of 3 landmarks, and the first (randomly selected) landmark is _(1,0)_. Find by hand the other two landmarks in _L_. 
+
+_Exercise_:
+Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen via sequential maxmin, then for any _l,,i,, ,l,,j,,_ in _L_, we have _d(l,,i,, ,l,,j,,)≥`R`_. 
+
+
+
+== Witness streams ==
+
+Suppose we are given a point cloud _Z_ and landmark subset _L_. Let _m,,k,,(z)_ be the distance from a point _z_ in _Z_ to its _(k+1)_-th closest landmark point. The witness stream complex _W(Z,L,t)_ is defined as follows.
+
+  * the vertex set is _L_.
+  * for _k>0_ and vertices _l,,i,,_, the _k_-simplex _[l,,0,, l,,1,, ... l,,k,,]_ is in _W(Z,L,t)_ if all of its faces are, and if there exists a witness point _z_ in _Z_ such that _max {d(l,,0,, ,z), d(l,,1,, ,z), ..., d(l,,k,, ,z)} ≤ t+m,,k,,(z)_. 
+
+Note that _W(Z,L,t)_ is a subcomplex of _W(Z,L,s)_ whenever _t≤ s_. Note that a landmark point can serve as a witness point. 
+
+_Exercise_:
+Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex _[(1,0),(0,3),(-1,0)]_? 
+
+
+The Matlab script corresponding to this section is `witness_example.m`.
+
+_Torus example._ Let's build a witness stream instance for _100,000_ random points from the unit torus _S^1^ x S^1^_ in _R^4^_, with 50 random landmarks.
+{{{
+>> num_points = 10000; 
+>> num_landmark_points = 50; 
+>> max_dimension = 3; 
+>> num_divisions = 100; 
+
+>> point_cloud = examples.PointCloudExamples.getRandomSphereProductPoints(num_points, 1, 2);  % overflow
+>> landmark_selector = api.Plex4.createRandomSelector(point_cloud, num_landmark_points);
+}}}
+The next command returns the landmark covering measure `R` from [Tutorial#Landmark_selection Landmark selection].  Often the value for _t,,max,,_ is chosen in proportion to `R`.
+{{{
+>> R = landmark_selector.getMaxDistanceFromPointsToLandmarks() 
+R = 1.1067      # Generally close to 1.1 
+>> max_filtration_value = R / 8; 
+}}}
+
+We create the witness stream.
+{{{
+>> stream = api.Plex4.createWitnessStream(landmark_selector, max_dimension,  max_filtration_value, num_divisions);  
+>> num_simplices = stream.getSize() 
+num_simplices = 1858      # Generally close to 2000
+}}}
+We plot the Betti intervals.
+{{{
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max,,_dimension); 
+>> filtration_index_intervals = persistence.computeIntervals(stream); 
+>> filtration_value_intervals = stream.transform(filtration_index_intervals); 
+>> api.Plex4.createBarcodePlot(filtration_value_intervals, 'witnessTorus', max_filtration_value)
+}}}
+The files `witnessTorus_0.PNG`, `witnessTorus_1.PNG`, and `witnessTorus_2.PNG` are saved to your current directory.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_1.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_2.PNG
+
+The idea of persistent homology is that long intervals should correspond to real topological features, whereas short intervals are considered to be noise. The plot above shows that for a long range, the torus numbers _Betti,,0,, = 1_, _Betti,,1,, = 2_, _Betti,,2,, = 1_ are obtained. Your plot should contain a similar range. 
+
+The witness stream above contains approximately 2,000 simplices, fewer than the approximately 80,000 simplices in the Vietoris-Rips stream from the torus example in [Tutorial#Vietoris-Rips_streams Vietoris-Rips streams]. This is despite the fact that we started with a point cloud of 100,000 points in the witness case, but of only 400 points in the Vietoris-Rips case. This supports our belief that the witness stream returns good results at lower computational expense. 
+
+
+== Lazy witness streams ==
+A lazy witness stream is similar to a witness stream. However, there is an extra parameter _v_, typically chosen to be 0, 1, or 2, which helps determine how the lazy witness complexes _LW,,v,,(Z,L,t)_ are constructed. See de Silva-Carlsson (2004) for more information. 
+
+Suppose we are given a point cloud _Z_, landmark subset _L_, and natural number parameter _v_. If _v = 0_, let _m(z) = 0_ for all _z_ in _Z_. If _v >0_, let _m(z)_ be the distance from _z_ to the _v_-th closest landmark point. The lazy witness complex _LW,,v,,(Z,L,t)_ is defined as follows.
+
+  * the vertex set is _L_.
+  * for vertices _a_ and _b_, edge _[ab]_ is in _LW,,v,,(Z,L,t)_ if there exists a witness _z_ in _Z_ such that _max{d(a,z), d(b,z)} ≤ t+m(z)_.
+  * a higher dimensional simplex is in _LW,,v,,(Z,L,t)_ if all of its edges are. 
+
+Note that _LW,,v,,(Z,L,t)_ is a subcomplex of _LW,,v,,(Z,L,s)_ whenever _t≤ s_. The adjective _lazy_ refers to the fact that the lazy witness complex is a flag complex: since the 1-skeleton determines all higher dimensional simplices, less computation is involved. 
+
+_Exercise_:
+Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Let _v = 1_. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex _[(1,0),(0,3),(-1,0)]_? 
+
+
+_Exercise_:
+Repeat the above exercise with _v = 0_ and with _v = 2_. 
+
+
+_Exercise_:
+Check that the 1-skeleton of a witness complex _W(Z,L,t)_ is the same as the 1-skeleton of a lazy witness complex _LW,,2,,(Z,L,t)_. As a consequence, _LW,,2,,(Z,L,t)_ is the flag complex of _W(Z,L,t)_. 
+
+
+_2-sphere example._ The Matlab script corresponding to this example is `lazy_witness_example.m`.
+
+We use parameter _v = 1_.
+{{{
+>> max_dimension = 3; 
+>> num_points = 1000; 
+>> num_landmark_points = 50; 
+>> nu = 1; 
+>> num_divisions = 100; 
+
+>> point_cloud = examples.PointCloudExamples.getRandomSpherePoints(num_points, max_dimension - 1);
+>> landmark_selector = api.Plex4.createRandomSelector(point_cloud, num_landmark_points); 
+}}}
+Often _t,,max,,_ is chosen in proportion to `R`. 
+{{{
+>> R = landmark_selector.getMaxDistanceFromPointsToLandmarks() 
+R = 0.6877     # Generally close to 0.7 
+>> max_filtration_value = R; 
+>> stream = streams.impl.LazyWitnessStream(landmark_selector.getUnderlyingMetricSpace(), landmark_selector, max_dimension, max_filtration_value, nu, num_divisions); 
+>> stream.finalizeStream() 
+>> num_simplices = stream.getSize() 
+num_simplices = 79842    # Generally between 30000 and 180000
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> filtration_index_intervals = persistence.computeIntervals(stream); 
+>> filtration_value_intervals = stream.transform(filtration_index_intervals); 
+>> api.Plex4.createBarcodePlot(filtration_value_intervals, 'lazySphere',  
+max_filtration_value) 
+}}}
+The files `lazySphere_0.PNG`, `lazySphere_1.PNG`, and `lazySphere_2.PNG` are saved to your current directory.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_1.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_2.PNG
+
+In the next section we build a lazy witness stream on a dataset of range image patches. 
+
+
+
+
+= Example with real data =
+
+We now do an example with real data. The corresponding Matlab script is `image_patch_examples.m`, and it relies on the files `pointsRange.mat` and `dct.m`. 
+
+In _On the nonlinear statistics of range image patches_ (Adams-Carlsson 2009), we study a space of range image patches drawn from the Brown database (Lee-Pedersen-Mumford 2003). A range image is like an optical image, except that each pixel contains a distance instead of a grayscale value. Our space contains high-contrast, normalized, _5 x 5_ pixel patches. We write each _5 x 5_ patch as a length 25 vector and think of our patches as point cloud data in _R^25^_. We select from this space the 30% densest vectors, based on a density estimator called _p,,300,,_ (see [Tutorial#Dense_core_subsets the appendix]). In (Adams-Carlsson 2009) this dense core subset is denoted _X^5^(300,30)_, and it contains 15,000 points. In the next example we verify a result from (Adams-Carlsson 2009): _X^5^(300,30)_ has the topology of a circle. 
+
+Load the file `pointsRange.mat`. The matrix `pointsRange` appears in your Matlab workspace.
+{{{
+>> load pointsRange.mat 
+>> size(pointsRange)  
+ans = 15000     25         # 15000 points in dimension 25
+}}}
+Matrix `pointsRange` is in fact _X^5^(300,30)_: each of its rows is a vector in _R^25^_. Display some of the coordinates of `pointsRange`. It is not easy to visualize a circle by looking at these coordinates! 
+
+We pick 50 sequential maxmin landmark points, we find the value of `R`, and we build the lazy witness stream with parameter _v = 1_. 
+
+{{{
+>> max_dimension = 3; 
+>> num_landmark_points = 50; 
+>> nu = 1; 
+>> num_divisions = 500; 
+
+>> landmark_selector = api.Plex4.createMaxMinSelector(pointsRange, num_landmark_points); 
+>> R = landmark_selector.getMaxDistanceFromPointsToLandmarks()  
+R = 0.7759      # Generally close to 0.75 
+>> max_filtration_value = R / 3; 
+>> stream = streams.impl.LazyWitnessStream(landmark_selector.getUnderlyingMetricSpace(), landmark_selector, max_dimension, max_filtration_value, nu, num_divisions);  
+>> stream.finalizeStream() 
+>> num_simplices = stream.getSize() 
+num_simplices = 12036       # Generally between 10000 and 25000
+
+>> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> filtration_index_intervals = persistence.computeIntervals(stream); 
+>> filtration_value_intervals = stream.transform(filtration_index_intervals); 
+>> api.Plex4.createBarcodePlot(filtration_value_intervals, 'lazyRange',  
+max_filtration_value)
+}}}
+The files `lazyRange_0.PNG` and `lazyRange_1.PNG` (and maybe `lazyRange_2.PNG`) are saved to your current directory.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazyRange_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazyRange_1.PNG
+Betti intervals for the lazy witness complex built from _X^5^(300,30)_
+
+The plots above show that for a long range, the circle Betti numbers _Betti,,0,, = Betti,,1,, = 1_ are obtained. Your plot should contain a similar range. This is good evidence that the core subset _X^5^(300,30)_ is well-approximated by a circle. 
+
+Our _5 x 5_ normalized patches are currently in the pixel basis: every coordinate corresponds to the range value at one of the 25 pixels. The Discrete Cosine Transform (DCT) basis is a useful basis for our patches (Adams-Carlsson 2009, Lee-Pedersen-Mumford 2003). We change to this basis in order to plot a projection of the loop evidenced by the barcode above. The method `dct.m` returns the DCT change-of-basis matrix for square patches of size specified by the input parameter.
+{{{
+>> pointsRangeDct = pointsRange * dct(5);
+}}}
+
+Two of the DCT basis vectors are horizontal and linear gradients.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/linearGrad.png
+We plot the projection of `pointsRangeDct` onto the linear gradient DCT basis vectors.
+{{{
+>> plot(pointsRangeDct(:,1), pointsRangeDct(:,5), '.') 
+axis square
+}}}
+
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/r5k300c30.png Projection of _X^5^(300,30)_
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/primaryCircle.png
+Range primary circle
+
+
+The projection of _X^5^(300,30)_ above shows a circle. It is called the range primary circle and is parameterized as shown above.
+
+
+
+
+= Remarks =
+
+
+== Matlab functions with javaPlex commands ==
+
+Writing Matlab functions is very useful. In order to include javaPlex commands in an m-file function, include the command `import edu.stanford.math.plex4.*;` as the second line of the function --  that is, as the first line underneath the function header. We include the m-file `eulerCharacteristic.m` as an example Matlab function.
+
+_Euler characteristic example._
+The corresponding Matlab script is `euler_characteristic_example.m`, and it relies on the file `eulerCharacteristic.m`. 
+
+First we create a 6-dimensional sphere. 
+{{{
+>> stream = api.Plex4.createExplicitSimplexStream(); 
+>> dimension = 6; 
+>> stream.addElement(0:(dimension + 1)); 
+>> stream.ensureAllFaces(); 
+>> stream.removeElementIfPresent(0:(dimension + 1)); 
+>> stream.finalizeStream();
+}}}
+The function `eulerCharacteristic.m` accepts an explicit simplex stream and its dimension as input. The function demonstrates two different methods for computing the Euler characteristic.
+{{{
+>> eulerCharacteristic(stream, dimension) 
+The Euler characteristic is 2 = 8 - 28 + 56 - 70 + 56 - 28 + 8, using the alternating sum of cells.
+The Euler characteristic is 2 = 1 - 0 + 0 - 0 + 0 - 0 + 1, using the alternating sum of Betti numbers.
+}}}
+
+
+= Dense core subsets =
+
+A core subset of a dataset is a collection of the densest points, such as _X^5^(300,30)_ in [Tutorial#Example_with_real_data Example with real data]. Since there are many density estimators, and since we can choose any number of the densest points, a dataset has a variety of core subsets. In this appendix we discuss how to create core subsets. 
+
+Real datasets can be very noisy, and outlier points can signiÞcantly alter the computed topology. Therefore, instead of trying to approximate the topology of an entire dataset, we often proceed as follows. We create a family of core subsets and identify their topologies. Looking at a variety of core subsets can give a good picture of the entire dataset. 
+
+See Carlsson-Ishkanov-de Silva-Zomorodian (2008) and de Silva-Carlsson (2004) for an example using multiple core subsets. The dataset is high-contrast patches from natural images. The authors use three density estimators. As they change from the most global to the most local density estimate, the topologies of the core subsets change from a circle, to three intersecting circles, to a Klein bottle. 
+
+One way to estimate the density of a point _z_ in a point cloud _Z_ is as follows. Let _p,,k,,(z)_ be the distance from _z_ to its _k_-th closest neighbor. Let the density estimate at _z_ be _1/p,,k,,(z)_. Varying parameter _k_ gives a family of density estimates. Using a small value for _k_ gives a local density estimate, and using a larger value for _k_ gives a more global estimate. 
+
+For Euclidean datasets, one can use the m-file `kDensitySlow.m` to produce density estimates _1/p,,k,,_. The following command is typical.
+{{{
+>> densities = kDensitySlow(points, _k_); 
+}}}
+Input `points` is an _N x n_ matrix of _N_ points in _R^n^_. Input _k_ is the density estimate parameter. Output `densities` is a vertical vertex of length _N_ containing the density estimate at each point. 
+
+M-file `coreSubset.m` builds a core subset. The following command is typical.
+{{{
+>> core = coreSubset(points, densities, numPoints); 
+}}}
+Inputs `points` and `densities` are as above. Output `core` is a _`numPoints` x n_ matrix representing the `numPoints` densest points. 
+
+_Prime numbers example._ The command `primes(3571)` returns a vector listing all prime numbers less than or equal to 3571, which is the 500-th prime. We think of these primes as points on the real line and build the core subset of the 10 densest points with density parameter _k = 1_.
+{{{
+>> p = primes(3571)'; 
+>> length(p) 
+ans = 500 
+>> densities1 = kDensitySlow(p, 1); 
+>> core1 = coreSubset(p, densities1, 10) 
+core1 =
+   2
+   3
+   5
+   7
+  11
+  13
+  17
+  19
+  29
+  31 
+}}}
+
+We get a bunch of twin primes, which makes sense since _k = 1_. Let's repeat with _k = 50_.
+{{{
+>> densities50 = kDensitySlow(p, 50); 
+>> core50 = coreSubset(p, densities50, 10) 
+core50 =
+  113
+  127
+  109
+  131
+  107
+  137
+  139
+  157
+  149
+  151 
+}}}
+
+With _k = 50_, we expect the densest points to be slightly larger than the 25-th prime, which is 97. 
+
+_Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most efficient way to calculate _p,,k,,_ for large datasets. There is a faster file `kDensity.m` for this purpose, which uses the kd-tree data structure. I have not included it in the tutorial because it requires one to download a kd-tree package for Matlab, available at http://www.mathworks.com/matlabcentral/fileexchange/21512-kd-tree-for-matlab . Please email `henrya@math.stanford.edu` if you're interested in using `kDensity.m`.
+
+
+
+= Bibliography =
+
+H. Adams and G. Carlsson, _On the nonlinear statistics of range image patches_, SIAM J. Img. Sci., 2, (2009), pp. 110-117.
+	
+M. A. Armstrong, _Basic Topology_, Springer, New York, Berlin, 1983.
+
+G. Carlson, T. Ishkhanov, V. de Silva, and A. Zomorodian, _On the local behavior of spaces of natural images_, Int. J. Computer Vision, 76 (2008), pp. 1-12.
+
+V. de Silva and G. Carlsson, _Topological estimation using witness complexes_, in Proceedings of the Symposium on Point-Based Graphics, ETH, Zürich, Switzerland, 2004, pp. 157-166.
+
+H. Edelsbrunner and J. Harer, _Computational Topology: An Introduction_, American Mathematical Society, Providence, 2010.
+
+H. Edelsbrunner, D. Letscher, and A. Zomorodian, _Topological persistence and simplification_,  Discrete Computat. Geom., 28 (2002), pp. 511-533.
+
+A. Hatcher, _Algebraic Topology_, Cambridge University Press, Cambridge, UK, 2002.
+
+A. B. Lee, K. S. Pedersen, and D. Mumford, _The nonlinear statistics of high-contrast patches in natural images_, Int. J. Computer Vision, 54 (2003), pp. 83-103.
+
+H. Sexton and M. Vejdemo-Johansson, JPlex simplicial complex library. http://comptop.stanford.edu/programs/jplex/.
+
+A. Zomorodian and G. Carlsson, _Computing persistent homology_, Discrete Computat. Geom., 33 (2005), pp. 247-274. 
