@@ -1,5 +1,7 @@
 #summary javaPlex tutorial.
 
-= Preface = 
+= Tutorial = 
 
-This page will hold the tutorial for javaPlex that Henry Adams is working on, in a wikified and web-readable form. So far, it is mainly a place-holder, but this should change shortly.
+The current version of the tutorial for javaPlex may be found <a href="http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/javaplex_tutorial.pdf">here</a>. It is still under development.
+
+The pdf version of the tutorial will be placed in the downloads section as soon as it is ready.
