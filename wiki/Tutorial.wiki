@@ -135,7 +135,7 @@ The Matlab script corresponding to this section is `explicit_simplex_example.m`,
 
 
 
-_Circle example._ Let's build a simplicial complex homeomorphic to a circle. We have three 0-simplices: [0], [1], and [2], and three 1-simplices: [0,1], [0 1], [0,2], [1,2].
+_Circle example._ Let's build a simplicial complex homeomorphic to a circle. We have three 0-simplices: `[0]`, `[1]`, and `[2]`, and three 1-simplices: `[0,1]`, `[0,2]`, `[1,2]`.
 
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/s1.png
 
@@ -270,7 +270,7 @@ Dimension: 0
 [1.0, 2.0)
 [0.0, infinity)
 }}}
-There are four intervals. The first is a _Betti,,1,,_ interval, starting at filtration time 3 and ending at 7. This 1-dimensional hole is formed by the three edges of the roof. It forms when edge _[4,5]_ appears at filtration time 3 and closes when 2-simplex _[3,4,5]_ appears at filtration time 7.
+There are four intervals. The first is a _Betti,,1,,_ interval, starting at filtration time 3 and ending at 7. This 1-dimensional hole is formed by the three edges of the roof. It forms when edge `[4,5]` appears at filtration time 3 and closes when 2-simplex `[3,4,5]` appears at filtration time 7.
 
 One _Betti,,0,,_ interval and one _Betti,,1,,_ interval are semi-infinite. 
 {{{
@@ -446,7 +446,7 @@ When working with a new dataset, don't choose _d,,max,,_ and _t,,max,,_ too larg
 Let _d(-,-)_ denote the distance between two points in metric space _Z_. A natural stream to build is the Vietoris-Rips stream. The complex _VR(Z,t)_ is defined as follows: 
 
   * the vertex set is _Z_.
-  * for vertices _a_ and _b_, edge _[ab]_ is in VR_(Z,t)_ if _d(a,b) ≤ t_.
+  * for vertices _a_ and _b_, edge `[a,b]` is in VR_(Z,t)_ if _d(a,b) ≤ t_.
   * a higher dimensional simplex is in VR_(Z,t)_ if all of its edges are.
 
 Note that _VR(Z,t)_ is a subcomplex of _VR(Z,s)_ whenever _t≤ s_, so the Vietoris-Rips stream is a filtered simplicial complex. Since a Vietoris-Rips complex is the maximal simplicial complex that can be built on top of its 1-skeleton, it is a _flag complex_. 
@@ -480,7 +480,7 @@ The files `ripsHouse_0.PNG` and `ripsHouse_1.PNG` are saved to your current dire
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_0.PNG
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_1.PNG
 
-The second dimensional Betti plot does not appear because there are no _Betti,,2,,_ intervals. Check that these plots are consistent with the Vietoris-Rips definition: edges _[3,5]_ and _[4,5]_ appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
+The second dimensional Betti plot does not appear because there are no _Betti,,2,,_ intervals. Check that these plots are consistent with the Vietoris-Rips definition: edges `[3,5]` and `[4,5]` appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
 
 _Remark._ We can build Vietoris-Rips streams not only on top of Euclidean point clouds, but also on top of explicit metric spaces. For example, if `m_space` is an explicit metric space, then we may call a command such as
 {{{
@@ -606,12 +606,12 @@ Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen v
 Suppose we are given a point cloud _Z_ and landmark subset _L_. Let _m,,k,,(z)_ be the distance from a point _z_ in _Z_ to its _(k+1)_-th closest landmark point. The witness stream complex _W(Z,L,t)_ is defined as follows.
 
   * the vertex set is _L_.
-  * for _k>0_ and vertices _l,,i,,_, the _k_-simplex _[l,,0,, l,,1,, ... l,,k,,]_ is in _W(Z,L,t)_ if all of its faces are, and if there exists a witness point _z_ in _Z_ such that _max {d(l,,0,, ,z), d(l,,1,, ,z), ..., d(l,,k,, ,z)} ≤ t+m,,k,,(z)_. 
+  * for _k>0_ and vertices _l,,i,,_, the _k_-simplex `[l,,0,, l,,1,, ... l,,k,,]` is in _W(Z,L,t)_ if all of its faces are, and if there exists a witness point _z_ in _Z_ such that _max {d(l,,0,, ,z), d(l,,1,, ,z), ..., d(l,,k,, ,z)} ≤ t+m,,k,,(z)_. 
 
 Note that _W(Z,L,t)_ is a subcomplex of _W(Z,L,s)_ whenever _t≤ s_. Note that a landmark point can serve as a witness point. 
 
 _Exercise_:
-Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex _[(1,0),(0,3),(-1,0)]_? 
+Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`? 
 
 
 The Matlab script corresponding to this section is `witness_example.m`.
@@ -663,13 +663,13 @@ A lazy witness stream is similar to a witness stream. However, there is an extra
 Suppose we are given a point cloud _Z_, landmark subset _L_, and natural number parameter _v_. If _v = 0_, let _m(z) = 0_ for all _z_ in _Z_. If _v >0_, let _m(z)_ be the distance from _z_ to the _v_-th closest landmark point. The lazy witness complex _LW,,v,,(Z,L,t)_ is defined as follows.
 
   * the vertex set is _L_.
-  * for vertices _a_ and _b_, edge _[ab]_ is in _LW,,v,,(Z,L,t)_ if there exists a witness _z_ in _Z_ such that _max{d(a,z), d(b,z)} ≤ t+m(z)_.
+  * for vertices _a_ and _b_, edge `[a,b]` is in _LW,,v,,(Z,L,t)_ if there exists a witness _z_ in _Z_ such that _max{d(a,z), d(b,z)} ≤ t+m(z)_.
   * a higher dimensional simplex is in _LW,,v,,(Z,L,t)_ if all of its edges are. 
 
 Note that _LW,,v,,(Z,L,t)_ is a subcomplex of _LW,,v,,(Z,L,s)_ whenever _t≤ s_. The adjective _lazy_ refers to the fact that the lazy witness complex is a flag complex: since the 1-skeleton determines all higher dimensional simplices, less computation is involved. 
 
 _Exercise_:
-Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Let _v = 1_. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex _[(1,0),(0,3),(-1,0)]_? 
+Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Let _v = 1_. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`? 
 
 
 _Exercise_:
