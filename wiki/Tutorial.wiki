@@ -62,16 +62,18 @@ The following Matlab scripts containing the commands in this tutorial are availa
   * `rips_example.m`
   * `witness_example.m`
 
-This tutorial also uses the following Matlab functions
+The folder `matlab\_examples/tutorial\_examples` also contains the following Matlab functions
 
   * `coreSubset.m`
   * `dct.m`
   * `eulerCharacteristic.m`
 
-and following Matlab data files, also available in the folder `matlab_examples/tutorial_examples`.
+and the following Matlab data files
 
   * `pointsRange.mat`
   * `pointsTorusGrid.mat`
+
+which are used in this tutorial.
 
 The folder `matlab_examples/tutorial_solutions` contains the following solution scripts to tutorial exercises.
 
