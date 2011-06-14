@@ -455,7 +455,7 @@ Note that _VR(Z,t)_ is a subcomplex of _VR(Z,s)_ whenever _t≤ s_, so the Vieto
 
 The Matlab script corresponding to this section is `rips_example.m`. 
 
-_House example._ Let's build a Vietoris-Rips stream from the house point cloud in [Tutorial#Euclidean_metric_spaces Euclidean metric spaces]. Note this stream is different than the explicit stream we built in [Tutorial#Explicit_simplex_streams_and_homology Explicit simplex streams and homology].
+_House example._ Let's build a Vietoris-Rips stream from the house point cloud in [Tutorial#Euclidean_metric_spaces Euclidean metric spaces]. Note this stream is different than the explicit house stream we built in [Tutorial#Explicit_simplex_streams_and_persistent_homology Explicit simplex streams and homology].
 {{{
 >> max_dimension = 3; 
 >> max_filtration_value = 4; 
