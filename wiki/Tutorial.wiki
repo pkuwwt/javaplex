@@ -440,7 +440,7 @@ The Vietoris-Rips, witness, and lazy witness streams all take three of the same 
 
 The number of divisions _N_ is an optional input. If this input parameter is not specified, then the default value _N = 20_ is used. 
 
-When working with a new dataset, don't choose _d,,max,,_ and _t,,max,,_ too large initially. First get a feel for how fast the complexes are growing, and then raise _d,,max,,_ and _t,,max,,_ nearer to the computational limits. If you ever choose _d,,max,,_ or _t,,max,,_ too large and Matlab seems to be running forever, pressing the ``control'' and ``c'' buttons simultaneously may halt the computation. 
+When working with a new dataset, don't choose _d,,max,,_ and _t,,max,,_ too large initially. First get a feel for how fast the simplicial complexes are growing, and then raise _d,,max,,_ and _t,,max,,_ nearer to the computational limits. If you ever choose _d,,max,,_ or _t,,max,,_ too large and Matlab seems to be running forever, pressing the ``control'' and ``c'' buttons simultaneously may halt the computation. 
 
 
 == Vietoris-Rips streams ==
