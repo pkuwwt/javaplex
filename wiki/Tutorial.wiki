@@ -163,7 +163,7 @@ We print the total number of simplices in the complex.
 num_simplices = 6
 }}}
 
-In order to compute the homology of our complex, we first create an object that will perform the computation. The following line obtains the default algorithm for performing simplicial homology. There are other variants on the persistence algorithm, and one can also change the ground field. This default object will perform the homology computation over the field with 2 elements. The input parameter 3 indicates that homology will be computed in dimensions 0, 1, and 2 — that is, in all dimensions strictly less than 3.
+In order to compute the homology of our complex, we first create an object that will perform the computation. The following line obtains the default algorithm for performing simplicial homology. There are other variants on the persistence algorithm, and one can also change the ground field. This default object will perform the homology computation with coefficients in the field of 2 elements. The input parameter 3 indicates that homology will be computed in dimensions 0, 1, and 2 — that is, in all dimensions strictly less than 3.
 {{{
 >> persistence = api.Plex4.getDefaultSimplicialAlgorithm(3);
 }}}
