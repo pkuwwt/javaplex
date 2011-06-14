@@ -190,7 +190,7 @@ _9-sphere example._ Let's build a 9-sphere, which is homeomorphic to the boundar
 >> stream.finalizeStream(); 
 }}}
 
-In the above, the `finalizeStream` function is used to ensure that the stream has been fully constructed and is ready for consumption by a persistence algorithm. Note that it can be omitted in the case where the additions are done in increasing order. However, it should be used in general. 
+In the above, the `finalizeStream` function is used to ensure that the stream has been fully constructed and is ready for consumption by a persistence algorithm. Note that it can be omitted in the case where the simplex additions are done in increasing order. However, it should be used in general. 
 
 We print the total number of simplices in the complex.
 {{{
