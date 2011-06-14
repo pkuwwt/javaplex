@@ -568,7 +568,6 @@ We create both a random landmark selector and a sequential maxmin landmark selec
 
 We select 100 random landmarks and 100 landmarks via sequential maxmin. Note we need to increment the indices by 1 since Java uses 0-based arrays.
 {{{
->> num_landmark_points = 100; 
 >> random_points = point_cloud(random_selector.getLandmarkPoints() + 1, :); 
 >> maxmin_points = point_cloud(maxmin_selector.getLandmarkPoints() + 1, :);
 }}}
