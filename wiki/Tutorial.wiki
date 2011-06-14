@@ -448,8 +448,8 @@ When working with a new dataset, don't choose _d,,max,,_ and _t,,max,,_ too larg
 Let _d(-,-)_ denote the distance between two points in metric space _Z_. A natural stream to build is the Vietoris-Rips stream. The complex _VR(Z,t)_ is defined as follows: 
 
   * the vertex set is _Z_.
-  * for vertices _a_ and _b_, edge `[a,b]` is in VR_(Z,t)_ if _d(a,b) ≤ t_.
-  * a higher dimensional simplex is in VR_(Z,t)_ if all of its edges are.
+  * for vertices _a_ and _b_, edge `[a,b]` is in _VR(Z,t)_ if _d(a,b) ≤ t_.
+  * a higher dimensional simplex is in _VR(Z,t)_ if all of its edges are.
 
 Note that _VR(Z,t)_ is a subcomplex of _VR(Z,s)_ whenever _t≤ s_, so the Vietoris-Rips stream is a filtered simplicial complex. Since a Vietoris-Rips complex is the maximal simplicial complex that can be built on top of its 1-skeleton, it is a _flag complex_. 
 
@@ -536,11 +536,11 @@ _Exercise_:
 Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the size of the Vietoris-Rips stream and the time of computation grow. Either increasing _t,,max,,_ from 0.9 to 1 or increasing _d,,max,,_ from 3 to 4 roughly doubles the size of the Vietoris-Rips stream. 
 
 _Exercise_:
-Find a planar dataset _Z_ and a filtration value _t_ such that _Betti,,2,,(VR(Z,t))≠0_. Build a Vietoris-Rips stream to confirm your answer. 
+Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,2,,_. Build a Vietoris-Rips stream to confirm your answer. 
 
 
 _Exercise_:
-Find a planar dataset _Z_ and a filtration value _t_ such that _Betti,,6,,(VR(Z,t))≠0_. When building a Vietoris-Rips stream to confirm your answer, don't forget to choose _d,,max,, = 7_. 
+Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,6,,_. When building a Vietoris-Rips stream to confirm your answer, don't forget to choose _d,,max,, = 7_. 
 
 
 
