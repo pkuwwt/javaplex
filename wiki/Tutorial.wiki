@@ -169,8 +169,8 @@ In order to compute the homology of our complex, we first create an object that 
 }}}
 We compute and print the intervals.
 {{{
->> triangle_intervals = persistence.computeIntervals(stream) 
-triangle_intervals = 
+>> circle_intervals = persistence.computeIntervals(stream) 
+circle_intervals = 
 
 Dimension: 1 
 [0, infinity) 
