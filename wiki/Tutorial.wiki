@@ -617,7 +617,7 @@ Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metr
 
 The Matlab script corresponding to this section is `witness_example.m`.
 
-_Torus example._ Let's build a witness stream instance for 100,000 random points from the unit torus _S^1^ x S^1^_ in _R^4^_, with 50 random landmarks.
+_Torus example._ Let's build a witness stream instance for 10,000 random points from the unit torus _S^1^ x S^1^_ in _R^4^_, with 50 random landmarks.
 {{{
 >> num_points = 10000; 
 >> num_landmark_points = 50; 
