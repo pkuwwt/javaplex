@@ -48,7 +48,7 @@ Each time upon starting a new Matlab session, you will need to run `load_javaple
 
 == Accompanying files ==
 
-The following Matlab scripts containing the commands in this tutorial are available in the folder `matlab\_examples/tutorial\_examples`. This means you don't need to type in each command individually.
+The following Matlab scripts containing the commands in this tutorial are available in the folder `matlab\_examples/tutorial\_examples`. This means that you don't need to type in each command individually.
 
   * `core_subsets_example.m`
   * `euler_characteristic_example.m`
