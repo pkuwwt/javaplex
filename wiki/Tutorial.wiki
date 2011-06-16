@@ -937,7 +937,7 @@ _Solution_:
 _L_ is the set _{(1, 0), (0, 3), (-1, 0)}_.
 
 _Exercise_:
-Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen via sequential maxmin, then for any _l,,i,, , l,,j,,_ in _L_, we have _d(l,,i,, , l,,j,,)_ ≥`R`. 
+Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen via sequential maxmin, then for any _l,,i,, , l,,j,,_ in _L_, we have _d(l,,i,, , l,,j,,)_ ≥ `R`. 
 
 _Solution_:
 Without loss of generality, assume that _i < j_ and that landmarks _l,,i,,_ and _l,,j,,_ were the _i_-th and _j_-th landmarks selected by the inductive sequential maxmin process. Let _L,,j-1,,_ be the first _j - 1_ landmarks chosen.
