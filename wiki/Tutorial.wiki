@@ -956,7 +956,7 @@ _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Let _v = 1_. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`? 
 
 _Solution_:
-The edge between _(1, 0)_ and _(0, 3)_ has filtration time _2-\sqrt{2}_. Point _(1, 2)_ witnesses this edge. The lone 2-simplex has filtration time _\sqrt{2}_, which is when the edge between _(1, 0)_ and _(-1, 0)_ appears.
+The edge between _(1, 0)_ and _(0, 3)_ has filtration time _2-√2_. Point _(1, 2)_ witnesses this edge. The lone 2-simplex has filtration time _√2_, which is when the edge between _(1, 0)_ and _(-1, 0)_ appears.
 
 _Exercise_:
 Repeat the above exercise with _v = 0_ and with _v = 2_. 
