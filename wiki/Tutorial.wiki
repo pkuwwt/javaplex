@@ -502,7 +502,7 @@ ans = 400    4         # 400 points in dimension 4
 >> stream = api.Plex4.createVietorisRipsStream(point_cloud, max_dimension,  % overflow
 max_filtration_value, num_divisions);  
 >> num_simplices = stream.getSize() 
-num_simplices = 82479         # Generally close to 80000   
+num_simplices = 82479
 
 >> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
 >> filtration_index_intervals = persistence.computeIntervals(stream); 
