@@ -890,6 +890,15 @@ _Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most effici
 
 
 
+
+= Exercise solutions =
+
+_Exercise_
+Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. {\em Hint:} You will need at least 7 vertices \cite[page 107]{h02}. We recommend using a $3\times 3$ grid of 9 vertices.
+\end{exerciseSol}
+
+
+
 = Bibliography =
 
 H. Adams and G. Carlsson, _On the nonlinear statistics of range image patches_, SIAM J. Img. Sci., 2, (2009), pp. 110-117.
