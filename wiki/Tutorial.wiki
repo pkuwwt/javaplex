@@ -139,7 +139,7 @@ The Matlab script corresponding to this section is `explicit_simplex_example.m`,
 
 _Circle example._ Let's build a simplicial complex homeomorphic to a circle. We have three 0-simplices: `[0]`, `[1]`, `[2]`, and three 1-simplices: `[0,1]`, `[0,2]`, `[1,2]`.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/s1.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/s1.pdf
 
 To build a simplicial complex in javaPlex we simply build a stream in which all filtration times are zero. First we create an empty explicit simplex stream. Many command lines in this tutorial will end with a semicolon to supress unwanted output.
 {{{
