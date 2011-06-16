@@ -214,7 +214,7 @@ Dimension: 0
 }}}
 This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,9,,=1_. 
 
-_Exercise_: 
+_Exercise_ 3.1.1: 
 Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
 
 
