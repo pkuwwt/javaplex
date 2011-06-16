@@ -214,7 +214,7 @@ Dimension: 0
 }}}
 This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,9,,=1_. 
 
-_Exercise_ 3.1.1: 
+_Exercise_: 
 Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
 
 
@@ -893,9 +893,16 @@ _Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most effici
 
 = Exercise solutions =
 
-_Exercise_
-Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. {\em Hint:} You will need at least 7 vertices \cite[page 107]{h02}. We recommend using a $3\times 3$ grid of 9 vertices.
-\end{exerciseSol}
+_Exercise_: 
+Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
+
+
+_Exercise_:
+Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
+
+
+_Exercise_:
+Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
 
 
 
