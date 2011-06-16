@@ -817,6 +817,12 @@ The Euler characteristic is 2 = 1 - 0 + 0 - 0 + 0 - 0 + 1, using the alternating
 }}}
 
 
+== Representative cycles ==
+The persistence algorithm that computes barcodes can also find a representative cycle for each homology class. However, there is no guarantee that the produced representative will be geometrically nice. 
+
+
+
+
 = Dense core subsets =
 
 A core subset of a dataset is a collection of the densest points, such as _X^5^(300,30)_ in [Tutorial#Example_with_real_data Example with real data]. Since there are many density estimators, and since we can choose any number of the densest points, a dataset has a variety of core subsets. In this appendix we discuss how to create core subsets. 
