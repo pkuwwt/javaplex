@@ -889,10 +889,12 @@ _Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most effici
 = Exercise solutions =
 
 _Exercise_: 
-Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
+Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices.
 
 _Solution_:
 See the Matlab script `exercise_3_1_1.m` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/torus.pdf
 
 _Exercise_:
 Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
