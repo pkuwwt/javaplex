@@ -802,8 +802,8 @@ The corresponding Matlab script is `euler_characteristic_example.m`, and it reli
 
 First we create a 6-dimensional sphere. 
 {{{
->> stream = api.Plex4.createExplicitSimplexStream(); 
 >> dimension = 6; 
+>> stream = api.Plex4.createExplicitSimplexStream(); 
 >> stream.addElement(0:(dimension + 1)); 
 >> stream.ensureAllFaces(); 
 >> stream.removeElementIfPresent(0:(dimension + 1)); 
