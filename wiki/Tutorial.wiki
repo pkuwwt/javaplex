@@ -217,10 +217,8 @@ This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,9,,=1_.
 _Exercise_: 
 Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
 
-
 _Exercise_:
 Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
-
 
 _Exercise_:
 Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
@@ -537,7 +535,6 @@ Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the s
 _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,2,,_. Build a Vietoris-Rips stream to confirm your answer. 
 
-
 _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,6,,_. When building a Vietoris-Rips stream to confirm your answer, don't forget to choose _d,,max,, = 7_. 
 
@@ -671,10 +668,8 @@ Note that _LW,,v,,(Z,L,t)_ is a subcomplex of _LW,,v,,(Z,L,s)_ whenever _t≤ s_
 _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Let _v = 1_. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`? 
 
-
 _Exercise_:
 Repeat the above exercise with _v = 0_ and with _v = 2_. 
-
 
 _Exercise_:
 Check that the 1-skeleton of a witness complex _W(Z,L,t)_ is the same as the 1-skeleton of a lazy witness complex _LW,,2,,(Z,L,t)_. As a consequence, _LW,,2,,(Z,L,t)_ is the flag complex of _W(Z,L,t)_. 
@@ -896,22 +891,17 @@ _Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most effici
 _Exercise_: 
 Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
 
-
 _Exercise_:
 Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
-
 
 _Exercise_:
 Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
 
-
 _Exercise_:
 Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the size of the Vietoris-Rips stream and the time of computation grow. Either increasing _t,,max,,_ from 0.9 to 1 or increasing _d,,max,,_ from 3 to 4 roughly doubles the size of the Vietoris-Rips stream. 
 
-
 _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,2,,_. Build a Vietoris-Rips stream to confirm your answer. 
-
 
 _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,6,,_. When building a Vietoris-Rips stream to confirm your answer, don't forget to choose _d,,max,, = 7_. 
@@ -928,10 +918,8 @@ Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metr
 _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Let _v = 1_. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`? 
 
-
 _Exercise_:
 Repeat the above exercise with _v = 0_ and with _v = 2_. 
-
 
 _Exercise_:
 Check that the 1-skeleton of a witness complex _W(Z,L,t)_ is the same as the 1-skeleton of a lazy witness complex _LW,,2,,(Z,L,t)_. As a consequence, _LW,,2,,(Z,L,t)_ is the flag complex of _W(Z,L,t)_. 
