@@ -900,26 +900,35 @@ _Exercise_:
 Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
 
 _Solution_:
+See the Matlab script `exercise_3_1_2.m` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides, with left and right sides identified with a twist. 
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/klein.png
 
 _Exercise_:
 Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
 
 _Solution_:
+See the Matlab script `exercise_3_1_3.m` for a solution. We use the minimal triangulation for the projective plane, which contains 6 vertices.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/projPlane.png
 
 _Exercise_:
 Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the size of the Vietoris-Rips stream and the time of computation grow. Either increasing _t,,max,,_ from 0.9 to 1 or increasing _d,,max,,_ from 3 to 4 roughly doubles the size of the Vietoris-Rips stream. 
 
 _Solution_:
+No solution included.
 
 _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,2,,_. Build a Vietoris-Rips stream to confirm your answer. 
 
 _Solution_:
+See the Matlab script `exercise_5_1_2.m` for a solution. Our planar dataset is 6 evenly spaced points on the unit circle. We build a Vietoris-Rips stream which, at the correct filtration value, is an octahedron.
 
 _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,6,,_. When building a Vietoris-Rips stream to confirm your answer, don't forget to choose _d,,max,, = 7_. 
 
 _Solution_:
+See the Matlab script `exercise_5_1_3.m` for a solution. Our planar dataset is 14 evenly spaced points on the unit circle. We build a Vietoris-Rips stream which, at the correct filtration value, is homeomorphic to the 6-sphere. It has 14 vertices because it is obtained by suspending the 0-sphere six times, for a total of _2 + (6 x 2) = 14_ vertices.
 
 _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Suppose we are using sequential maxmin to select a set _L_ of 3 landmarks, and the first (randomly selected) landmark is _(1,0)_. Find by hand the other two landmarks in _L_. 
