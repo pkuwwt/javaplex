@@ -894,7 +894,7 @@ Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers.
 _Solution_:
 See the Matlab script `exercise_3_1_1.m` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/torus.pdf
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/torus.png
 
 _Exercise_:
 Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
