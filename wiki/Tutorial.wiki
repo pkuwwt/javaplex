@@ -824,7 +824,7 @@ A core subset of a dataset is a collection of the densest points, such as _X^5^(
 
 Real datasets can be very noisy, and outlier points can signiÞcantly alter the computed topology. Therefore, instead of trying to approximate the topology of an entire dataset, we often proceed as follows. We create a family of core subsets and identify their topologies. Looking at a variety of core subsets can give a good picture of the entire dataset. 
 
-See Carlsson-Ishkanov-de Silva-Zomorodian (2008) and de Silva-Carlsson (2004) for an example using multiple core subsets. The dataset is high-contrast patches from natural images. The authors use three density estimators. As they change from the most global to the most local density estimate, the topologies of the core subsets change from a circle, to three intersecting circles, to a Klein bottle. 
+See Carlsson-Ishkanov-de Silva-Zomorodian (2008) and de Silva-Carlsson (2004) for an example using multiple core subsets. The dataset contains high-contrast patches from natural images. The authors use three density estimators. As they change from the most global to the most local density estimate, the topologies of the core subsets change from a circle, to three intersecting circles, to a Klein bottle. 
 
 One way to estimate the density of a point _z_ in a point cloud _Z_ is as follows. Let _p,,k,,(z)_ be the distance from _z_ to its _k_-th closest neighbor. Let the density estimate at _z_ be _1/p,,k,,(z)_. Varying parameter _k_ gives a family of density estimates. Using a small value for _k_ gives a local density estimate, and using a larger value for _k_ gives a more global estimate. 
 
