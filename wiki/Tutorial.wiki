@@ -934,17 +934,17 @@ _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Suppose we are using sequential maxmin to select a set _L_ of 3 landmarks, and the first (randomly selected) landmark is _(1,0)_. Find by hand the other two landmarks in _L_. 
 
 _Solution_:
-_L_ is the set _{(1, 0), (0, 3), (-1, 0)_.
+_L_ is the set _{(1, 0), (0, 3), (-1, 0)}_.
 
 _Exercise_:
-Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen via sequential maxmin, then for any _l,,i,, ,l,,j,,_ in _L_, we have _d(l,,i,, ,l,,j,,)≥`R`_. 
+Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen via sequential maxmin, then for any _l,,i,, , l,,j,,_ in _L_, we have _d(l,,i,, , l,,j,,)_ ≥`R`. 
 
 _Solution_:
 Without loss of generality, assume that _i < j_ and that landmarks _l,,i,,_ and _l,,j,,_ were the _i_-th and _j_-th landmarks selected by the inductive sequential maxmin process. Let _L,,j-1,,_ be the first _j - 1_ landmarks chosen.
 
-We proceed using a proof by contradiction. Suppose that _d(l,,i,,, l,,j,,) < `R`_. By definition of \texttt{R}, there exists a $z \in Z$ such that $d(z,L) = \texttt{R}$. Note that
-$$d(l_j, L_{j-1}) \leq d(l_j, l_i) = d(l_i, l_j) < \texttt{R} = d(z,L) \leq d(z, L_{j-1}).$$
-This contradicts the fact that landmark $l_j$ was chosen at the $j$-th step of sequential maxmin. Hence, it must be the case that $d(l_i, l_j) \geq \texttt{R}$. \\
+We proceed using a proof by contradiction. Suppose that _d(l,,i,, , l,,j,,)_ < `R`. By definition of `R`, there exists a _z_ in _Z_ such that _d(z, L) =_ `R`. Note that
+_d(l,,j,, , L,,j-1,,)_ \leq _d(l,,j,, , l,,i,,)_ = _d(l,,i,, , l,,j,,)_ < 'R' = _d(z, L)_ \leq _d(z, L_,,j-1,,)_.
+This contradicts the fact that landmark _l,,j,,_ was chosen at the _j_-th step of sequential maxmin. Hence, it must be the case that _d(l,,i,, , l,,j,,)_ ≥ `R`.
 
 _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`?
