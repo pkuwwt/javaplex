@@ -484,13 +484,6 @@ http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_1.P
 
 The second dimensional Betti plot does not appear because there are no _Betti,,2,,_ intervals. Check that these plots are consistent with the Vietoris-Rips definition: edges `[3,5]` and `[4,5]` appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
 
-_Remark._ We can build Vietoris-Rips streams not only on top of Euclidean point clouds, but also on top of explicit metric spaces. For example, if `m_space` were an explicit metric space, then we could call a command such as
-{{{
->> stream = api.Plex4.createVietorisRipsStream(m_space, max_dimension,  % overflow
-max_filtration_value, num_divisions);  
-}}}
-
-
 _Torus example._ Try the following sequence of commands. We start with 400 points from a _20 x 20_ grid on the unit torus _S^1^ x S^1^_ in _R^4^_, and add a small amount of noise to each point.
 
 We build the Vietoris-Rips stream.
@@ -531,6 +524,12 @@ betti_numbers_array =
 }}}
 
 This example makes it clear that the computed ``semi-infinite'' intervals do not necessarily persist until _t = ∞_: in a Vietoris-Rips stream, once _t_ is greater than the diameter of the point cloud, the Betti numbers for _VR(Z,t)_ will be _ Betti,,0,, = 1_, _Betti,,1,, = Betti,,2,, = ... = 0_. The computed semi-infinite intervals are merely those that persist until _t = t,,max,,_. 
+
+_Remark._ We can build Vietoris-Rips streams not only on top of Euclidean point clouds, but also on top of explicit metric spaces. For example, if `m_space` were an explicit metric space, then we could call a command such as
+{{{
+>> stream = api.Plex4.createVietorisRipsStream(m_space, max_dimension,  % overflow
+max_filtration_value, num_divisions);  
+}}}
 
 _Exercise_:
 Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the size of the Vietoris-Rips stream and the time of computation grow. Either increasing _t,,max,,_ from 0.9 to 1 or increasing _d,,max,,_ from 3 to 4 roughly doubles the size of the Vietoris-Rips stream. 
