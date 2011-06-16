@@ -879,7 +879,7 @@ core50 =
 
 With _k = 50_, we expect the densest points to be slightly larger than the 25-th prime, which is 97. 
 
-_Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most efficient way to calculate _p,,k,,_ for large datasets. There is a faster file `kDensity.m` for this purpose, which uses the kd-tree data structure. It is not included in the tutorial because it requires one to download a kd-tree package for Matlab, available at http://www.mathworks.com/matlabcentral/fileexchange/21512-kd-tree-for-matlab . Please email `henrya@math.stanford.edu` if you're interested in using `kDensity.m`.
+_Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most efficient way to calculate _p,,k,,_ for large datasets. There is a faster file `kDensity.m` for this purpose, which uses the kd-tree data structure. It is not included in the tutorial because it requires one to download a kd-tree package for Matlab, available at http://www.mathworks.com/matlabcentral/fileexchange/21512-kd-tree-for-matlab. Please email `henrya@math.stanford.edu` if you're interested in using `kDensity.m`.
 
 
 
