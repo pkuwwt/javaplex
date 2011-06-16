@@ -484,7 +484,7 @@ http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_1.P
 
 The second dimensional Betti plot does not appear because there are no _Betti,,2,,_ intervals. Check that these plots are consistent with the Vietoris-Rips definition: edges `[3,5]` and `[4,5]` appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
 
-_Remark._ We can build Vietoris-Rips streams not only on top of Euclidean point clouds, but also on top of explicit metric spaces. For example, if `m_space` is an explicit metric space, then we may call a command such as
+_Remark._ We can build Vietoris-Rips streams not only on top of Euclidean point clouds, but also on top of explicit metric spaces. For example, if `m_space` were an explicit metric space, then we could call a command such as
 {{{
 >> stream = api.Plex4.createVietorisRipsStream(m_space, max_dimension,  % overflow
 max_filtration_value, num_divisions);  
