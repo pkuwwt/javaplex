@@ -449,7 +449,7 @@ Let _d(-,-)_ denote the distance between two points in metric space _Z_. A natur
   * for vertices _a_ and _b_, edge `[a,b]` is in _VR(Z,t)_ if _d(a,b) ≤ t_.
   * a higher dimensional simplex is in _VR(Z,t)_ if all of its edges are.
 
-Note that _VR(Z,t)_ is a subcomplex of _VR(Z,s)_ whenever _t≤ s_, so the Vietoris-Rips stream is a filtered simplicial complex. Since a Vietoris-Rips complex is the maximal simplicial complex that can be built on top of its 1-skeleton, it is a _flag complex_. 
+Note that _VR(Z,t)_ is a subcomplex of _VR(Z,s)_ whenever _t ≤ s_, so the Vietoris-Rips stream is a filtered simplicial complex. Since a Vietoris-Rips complex is the maximal simplicial complex that can be built on top of its 1-skeleton, it is a _flag complex_. 
 
 The Matlab script corresponding to this section is `rips_example.m`. 
 
@@ -594,7 +594,7 @@ _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Suppose we are using sequential maxmin to select a set _L_ of 3 landmarks, and the first (randomly selected) landmark is _(1,0)_. Find by hand the other two landmarks in _L_. 
 
 _Exercise_:
-Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen via sequential maxmin, then for any _l,,i,, ,l,,j,,_ in _L_, we have _d(l,,i,, ,l,,j,,)≥`R`_. 
+Let _Z_ be a point cloud and _L_ a landmark subset. Show that if _L_ is chosen via sequential maxmin, then for any _l,,i,, ,l,,j,,_ in _L_, we have _d(l,,i,, ,l,,j,,)_ ≥ `R`. 
 
 
 
@@ -605,7 +605,7 @@ Suppose we are given a point cloud _Z_ and landmark subset _L_. Let _m,,k,,(z)_ 
   * the vertex set is _L_.
   * for _k>0_ and vertices _l,,i,,_, the _k_-simplex `[l,,0,, l,,1,, ... l,,k,,]` is in _W(Z,L,t)_ if all of its faces are, and if there exists a witness point _z_ in _Z_ such that _max {d(l,,0,, ,z), d(l,,1,, ,z), ..., d(l,,k,, ,z)} ≤ t+m,,k,,(z)_. 
 
-Note that _W(Z,L,t)_ is a subcomplex of _W(Z,L,s)_ whenever _t≤ s_. Note that a landmark point can serve as a witness point. 
+Note that _W(Z,L,t)_ is a subcomplex of _W(Z,L,s)_ whenever _t ≤ s_. Note that a landmark point can serve as a witness point. 
 
 _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`? 
@@ -657,13 +657,13 @@ The witness stream above contains approximately 2,000 simplices, fewer than the 
 == Lazy witness streams ==
 A lazy witness stream is similar to a witness stream. However, there is an extra parameter _v_, typically chosen to be 0, 1, or 2, which helps determine how the lazy witness complexes _LW,,v,,(Z,L,t)_ are constructed. See de Silva-Carlsson (2004) for more information. 
 
-Suppose we are given a point cloud _Z_, landmark subset _L_, and natural number parameter _v_. If _v = 0_, let _m(z) = 0_ for all _z_ in _Z_. If _v >0_, let _m(z)_ be the distance from _z_ to the _v_-th closest landmark point. The lazy witness complex _LW,,v,,(Z,L,t)_ is defined as follows.
+Suppose we are given a point cloud _Z_, landmark subset _L_, and natural number parameter _v_. If _v = 0_, let _m(z) = 0_ for all _z_ in _Z_. If _v > 0_, let _m(z)_ be the distance from _z_ to the _v_-th closest landmark point. The lazy witness complex _LW,,v,,(Z,L,t)_ is defined as follows.
 
   * the vertex set is _L_.
   * for vertices _a_ and _b_, edge `[a,b]` is in _LW,,v,,(Z,L,t)_ if there exists a witness _z_ in _Z_ such that _max{d(a,z), d(b,z)} ≤ t+m(z)_.
   * a higher dimensional simplex is in _LW,,v,,(Z,L,t)_ if all of its edges are. 
 
-Note that _LW,,v,,(Z,L,t)_ is a subcomplex of _LW,,v,,(Z,L,s)_ whenever _t≤ s_. The adjective _lazy_ refers to the fact that the lazy witness complex is a flag complex: since the 1-skeleton determines all higher dimensional simplices, less computation is involved. 
+Note that _LW,,v,,(Z,L,t)_ is a subcomplex of _LW,,v,,(Z,L,s)_ whenever _t ≤ s_. The adjective _lazy_ refers to the fact that the lazy witness complex is a flag complex: since the 1-skeleton determines all higher dimensional simplices, less computation is involved. 
 
 _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Let _L = {(1,0),(0,3),(-1,0)}_ be the landmark subset. Let _v = 1_. Find by hand the filtration time for the edge between vertices _(1,0)_ and _(0,3)_. Which point or points witness this edge? What is the filtration time for the lone 2-simplex `[(1,0),(0,3),(-1,0)]`? 
@@ -943,7 +943,7 @@ _Solution_:
 Without loss of generality, assume that _i < j_ and that landmarks _l,,i,,_ and _l,,j,,_ were the _i_-th and _j_-th landmarks selected by the inductive sequential maxmin process. Let _L,,j-1,,_ be the first _j - 1_ landmarks chosen.
 
 We proceed using a proof by contradiction. Suppose that _d(l,,i,, , l,,j,,)_ < `R`. By definition of `R`, there exists a _z_ in _Z_ such that _d(z, L) =_ `R`. Note that
-_d(l,,j,, , L,,j-1,,)_ \leq _d(l,,j,, , l,,i,,)_ = _d(l,,i,, , l,,j,,)_ < 'R' = _d(z, L)_ \leq _d(z, L_,,j-1,,)_.
+_d(l,,j,, , L,,j-1,,)_ ≤ _d(l,,j,, , l,,i,,)_ = _d(l,,i,, , l,,j,,)_ < `R` = _d(z, L)_ ≤ _d(z, L_,,j-1,,)_.
 This contradicts the fact that landmark _l,,j,,_ was chosen at the _j_-th step of sequential maxmin. Hence, it must be the case that _d(l,,i,, , l,,j,,)_ ≥ `R`.
 
 _Exercise_:
