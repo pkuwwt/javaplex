@@ -29,7 +29,7 @@ ans = Java 1.5.0_13 with Apple Inc.   Java Hotspot(TM) Client VM mixed mode, sha
 
 javaPlex requires version number `1.5` or higher.
 
-To install javaPlex for Matlab, go the the website http://code.google.com/p/javaplex/downloads/list. Download the zip file containing the Matlab examples. It should be called something like `matlab-examples-4.01.tar.gz`.
+To install javaPlex for Matlab, go the the website http://code.google.com/p/javaplex/downloads/list. Download the zip file containing the Matlab examples. It should be called something like `matlab-examples-4.0.0.tar.gz`.
 Extract the zip file. The resulting folder should be called `matlab-examples`. 
 
 Change directories in Matlab  to `matlab-examples`. Run the `load_javaplex.m` file. 
