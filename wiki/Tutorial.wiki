@@ -431,10 +431,9 @@ ans = 2.8284
 }}}
 
 _Exercise_:
-One way to produce a torus is to take a square _[0, 1] x [0, 1]_ and then identify opposite sides. This is called a flat torus. More explicitly, the quotient space _([0, 1] x [0, 1]) / ~_, where $(0, y) \sim (1, y)$ for all $y \in [0, 1]$ and where $(x, 0) \sim (x, 1)$ for all $x \in [0, 1]$, is a flat torus. The Euclidean metric on $[0, 1] \times [0, 1]$ induces a metric on the flat torus. For example, in the induced metric on the flat torus, the distance between $(0, \frac{1}{2})$ and $(1, \frac{1}{2})$ is zero, since these two points are identified. The distance between $(\frac{1}{10}, \frac{1}{2})$ and $(\frac{9}{10}, \frac{1}{2})$ is $\frac{2}{10}$, by passing through the point $(0, \frac{1}{2}) \sim (1, \frac{1}{2})$.
-% TODO add figure
+One way to produce a torus is to take a square `[0, 1] x [0, 1]` and then identify opposite sides. This is called a flat torus. More explicitly, the quotient space (`[0, 1] x [0, 1]`) / ~, where _(0, y) ~ (1, y)_ for all _y_ in `[0, 1]` and where _(x, 0) ~ (x, 1)_ for all _x_ in `[0, 1]`, is a flat torus. The Euclidean metric on `[0, 1] x [0, 1]` induces a metric on the flat torus. For example, in the induced metric on the flat torus, the distance between _(0, 1/2)_ and _(1, 1/2)_ is zero, since these two points are identified. The distance between _(1/10, 1/2)_ and _(9/10, 1/2)_ is _2/10_, by passing through the point _(0, 1/2) ~ (1, 1/2)_.
 
-Write a Matlab script (or function---see Section \ref{matlabFunctions}) that first selects 1,000 random points from the square $[0, 1] \times [0, 1]$ and then computes the 1,000 $\times$ 1,000 distance matrix for these points under the induced metric on the flat torus. Create an explicit metric space from this distance matrix.
+Write a Matlab script (or function-see Section [Tutorial#Matlab_functions Matlab functions] that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat torus. Create an explicit metric space from this distance matrix.
 
 
 
