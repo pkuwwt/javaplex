@@ -723,8 +723,6 @@ http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_0.
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_1.PNG
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_2.PNG
 
-In the next section we build a lazy witness stream on a dataset of range image patches. 
-
 
 
 
