@@ -80,8 +80,14 @@ The folder `matlab_examples/tutorial_solutions` contains the following solution 
   * `exercise_3_1_1.m`
   * `exercise_3_1_2.m`
   * `exercise_3_1_3.m`
+  * `exercise_4_2_1.m`
+  * `exercise_4_2_2.m`
   * `exercise_5_1_2.m`
   * `exercise_5_1_3.m`
+  * `exercise_5_4_4.m`
+  * `exercise_5_4_5.m`
+  * `flatKleinDistanceMatrix.m`
+  * `flatTorusDistanceMatrix.m`
 
 See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solutions.
 
