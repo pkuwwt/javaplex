@@ -734,6 +734,8 @@ One way to produce a torus is to take a square `[0, 1] x [0, 1]` and then identi
 
 Write a Matlab script (or function - see Section [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat torus. Create an explicit metric space from this distance matrix.
 
+Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a torus. 
+
 _Exercise_:
 The first part of this exercise is the same as an exercise in Section [Tutorial#Explicit_metric_spaces Explicit metric spaces].
 
@@ -741,7 +743,7 @@ One way to produce a Klein bottle is to take a square `[0, 1] x [0, 1]` and then
 
 Write a Matlab script (or function - see Section [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat Klein bottle. Create an explicit metric space from this distance matrix.
 
-This exercise is continued by an exercise in Section [Tutorial#Lazy_witness_streams Lazy witness streams].
+Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field of two elements and over coefficients in the field of three elements. 
 
 
 
