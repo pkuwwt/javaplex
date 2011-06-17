@@ -83,6 +83,8 @@ The folder `matlab_examples/tutorial_solutions` contains the following solution 
   * `exercise_5_1_2.m`
   * `exercise_5_1_3.m`
 
+See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solutions.
+
 
 
 
