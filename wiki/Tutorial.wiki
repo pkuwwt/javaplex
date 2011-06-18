@@ -138,6 +138,10 @@ In javaPlex, filtered simplicial complexes (or more generally filtered chain com
 
 == Explicit simplex streams and homology ==
 
+You should change your current Matlab directory to `tutorial_examples`, perhaps using the following command.
+{{{
+>> cd tutorial_examples
+}}}
 The Matlab script corresponding to this section is `explicit_simplex_example.m`, which is in the folder `tutorial_examples`. You may copy and paste commands from this script into the Matlab window, or you may run the entire script at once with the following command.
 {{{
 >> explicit_simplex_example
