@@ -7,11 +7,11 @@ The pdf version of the tutorial for javaPlex may be found [http://javaplex.googl
 
 == javaPlex ==
 
-javaPlex is a Java software package for computing the persistent homology of filtered chain complexes, with special emphasis on applications arising in topological data analysis. The main author is Andrew Tausz. javaPlex is a re-write of the JPlex package, which was written by Harlan Sexton and Mikael Vejdemo Johansson. The main motivation for the development of javaPlex was the need for a flexible platform that supported new directions of research in topological data analysis and computational persistent homology. The website for javaPlex is http://code.google.com/p/javaplex/ and the javadoc tree for the library is at http://javaplex.googlecode.com/svn/trunk/doc/index.html .
+javaPlex is a Java software package for computing the persistent homology of filtered chain complexes, with special emphasis on applications arising in topological data analysis. The main author is Andrew Tausz. javaPlex is a re-write of the JPlex package, which was written by Harlan Sexton and Mikael Vejdemo Johansson. The main motivation for the development of javaPlex was the need for a flexible platform that supported new directions of research in topological data analysis and computational persistent homology. The website for javaPlex is http://code.google.com/p/javaplex/ and the javadoc tree for the library is at http://javaplex.googlecode.com/svn/trunk/doc/index.html.
 
-If you are interested in javaPlex, then you may also be interested in the software package Dionysus by Dmitriy Morozov, available at http://www.mrzv.org/software/dionysus .
+If you are interested in javaPlex, then you may also be interested in the software package Dionysus by Dmitriy Morozov, available at http://www.mrzv.org/software/dionysus.
 
-Some of the exercises in this tutorial are borrowed from Vin de Silva's _Plexercises_, available at http://comptop.stanford.edu/u/programs/Plexercises2.pdf .
+Some of the exercises in this tutorial are borrowed from Vin de Silva's _Plexercises_, available at http://comptop.stanford.edu/u/programs/Plexercises2.pdf.
 
 
 == License ==
