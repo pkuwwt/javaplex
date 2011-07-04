@@ -43,9 +43,7 @@ Installation is complete. Confirm that javaPlex is working properly with the fol
 >> api.Plex4.createExplicitSimplexStream() 
 ans = edu.stanford.math.plex4.streams.impl.ExplicitSimplexStream@513fd4
 }}}
-Your output should be the same except for the last several characters.
- 
-Each time upon starting a new Matlab session, you will need to run `load_javaplex.m`.
+Your output should be the same except for the last several characters. Each time upon starting a new Matlab session, you will need to run `load_javaplex.m`.
 
 
 == Accompanying files ==
