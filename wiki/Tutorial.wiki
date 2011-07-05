@@ -18,7 +18,7 @@ Some of the exercises in this tutorial are borrowed from Vin de Silva's _Plexerc
 
 == License ==
 
-javaPlex is an open source software package under the Open BSD License. The source code can be found at http://code.google.com/p/javaplex/ . If you are interested in contributing to the project, we invite you to contact either of the authors.
+javaPlex is an open source software package under the Open BSD License. The source code can be found at http://code.google.com/p/javaplex/. If you are interested in contributing to the project, we invite you to contact either of the authors.
 
 
 == Installation for Matlab ==
