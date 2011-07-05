@@ -302,11 +302,6 @@ The Matlab function `plot_barcodes.m` lets us display the intervals as Betti bar
 {{{
 >> plot_barcodes(intervals, 0, 1, 'house')
 }}}
-
-The method `createBarcodePlot` lets us display the intervals as a Betti barcode. The three inputs are `filtration_value_intervals`, a string for the filename, and the maximum filtration time (which may be adjusted _± 10%_) for the plot. 
-{{{
->> api.Plex4.createBarcodePlot(filtration_value_intervals, 'house', 8)
-}}}
 The file `house.png` is saved to your current directory.
 
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house_0.PNG
