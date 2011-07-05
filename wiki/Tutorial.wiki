@@ -304,8 +304,7 @@ The Matlab function `plot_barcodes.m` lets us display the intervals as Betti bar
 }}}
 The file `house.png` is saved to your current directory.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house_0.PNG
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house_1.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house.png
 
 The filtration times are on the horizontal axis. The _Betti_k_ number of the stream at filtration time _t_ is the number of intervals in the dimension _k_ plot that intersect a vertical line through _t_. Check that the displayed intervals agree with the filtration times we built into the house stream. At time 0, a connected component and a 1-dimensional hole form. At time 1, a second connected component appears, which joins to the first at time 2. A second 1-dimensional hole forms at time 3, and closes at time 7. 
 
