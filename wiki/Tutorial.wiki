@@ -285,7 +285,7 @@ There are four intervals. The first is a _Betti,,1,,_ interval, starting at filt
 
 One _Betti,,0,,_ interval and one _Betti,,1,,_ interval are semi-infinite. 
 {{{
->> infinite_barcodes = filtration_value_intervals.getInfiniteIntervals();
+>> infinite_barcodes = intervals.getInfiniteIntervals();
 }}}
 We can print the Betti numbers (at the largest filtration time 7) as an array
 {{{
@@ -298,11 +298,16 @@ or as a list with entries of the form _k: Betti,,k_.
 betti_numbers_string = {0: 1, 1: 1}
 }}}
 
+The Matlab function `plot_barcodes.m` lets us display the intervals as Betti barcodes. The four inputs are `intervals`, the minimum dimension barcode to plot, the maximum dimension barcode to plot, and a string for the filename. 
+{{{
+>> plot_barcodes(intervals, 0, 1, 'house')
+}}}
+
 The method `createBarcodePlot` lets us display the intervals as a Betti barcode. The three inputs are `filtration_value_intervals`, a string for the filename, and the maximum filtration time (which may be adjusted _± 10%_) for the plot. 
 {{{
 >> api.Plex4.createBarcodePlot(filtration_value_intervals, 'house', 8)
 }}}
-The files `house_0.PNG` and `house_1.PNG` are saved to your current directory.
+The file `house.png` is saved to your current directory.
 
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house_0.PNG
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house_1.PNG
