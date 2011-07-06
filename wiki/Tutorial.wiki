@@ -495,9 +495,12 @@ Since _d,,max = 3_ we can compute up to second dimensional persistent homology.
 >> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
 >> intervals = persistence.computeIntervals(stream);
 }}}
-We display the Betti intervals.
+We display the Betti intervals. Parameter `options.max\_filtration\_value` is the largest filtration time to be displayed. Typically `options.max\_filtration\_value` is chosen to be `max\_filtration\_value`. Parameter `options.max\_dimension` is the largest persistent homology dimension to be displayed. Typically `options.max\_dimension` is chosen to be `max\_dimension - 1` because in a stream with simplices computed up to dimension _d,,max,,_ we can only compute persistent homology up to dimension _d,,max,, - 1_.
 {{{
->> api.Plex4.createBarcodePlot(filtration_value_intervals, 'ripsHouse', max_filtration_value)
+>> options.filename = 'ripsHouse';
+>> options.max_filtration_value = max_filtration_value;
+>> options.max_dimension = max_dimension - 1;
+>> plot_barcodes(intervals, options);
 }}}
 The file `ripsHouse.png` is saved to your current directory.
 
