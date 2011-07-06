@@ -528,7 +528,9 @@ num_simplices = 82479
 >> intervals = persistence.computeIntervals(stream);
 >> plot_barcodes(intervals, 0, max_dimension - 1, 'ripsTorus', 'ripsTorus', 'png', true)
 }}}
-The file `ripsTorus.png` is saved to your current directory. We do not show these figures because the plots are very tall. 
+The file `ripsTorus.png` is saved to your current directory.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse.png
 
 The diameter of this torus (before adding noise) is _√8_, so choosing _t,,max,, = 0.9_ likely will not show all homological activity. However, the torus will be reasonably connected by this time. Note the semi-infinite intervals match the correct numbers _Betti,,0,, = 1_, _Betti,,1,, = 2_, _Betti,,2,, = 1_ for a torus.
 
