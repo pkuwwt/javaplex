@@ -668,9 +668,9 @@ We plot the Betti intervals.
 }}}
 The files `witnessTorus_0.png`, `witnessTorus_1.png`, and `witnessTorus_2.png` are saved to your current directory.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_0.png
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_1.png
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_2.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_1.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/witnessTorus_2.PNG
 
 The idea of persistent homology is that long intervals should correspond to real topological features, whereas short intervals are considered to be noise. The plot above shows that for a long range, the torus numbers _Betti,,0,, = 1_, _Betti,,1,, = 2_, _Betti,,2,, = 1_ are obtained. Your plot should contain a similar range. 
 
