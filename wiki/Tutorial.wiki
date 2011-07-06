@@ -670,7 +670,11 @@ We plot the Betti intervals.
 {{{
 >> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max,,_dimension); 
 >> intervals = persistence.computeIntervals(stream); 
->> plot_barcodes(intervals, 0, max_dimension - 1, 'witnessTorus')
+
+>> options.filename = 'witnessTorus';
+>> options.max_filtration_value = max_filtration_value;
+>> options.max_dimension = max_dimension - 1;
+>> plot_barcodes(intervals, options);
 }}}
 The file `witnessTorus.png` is saved to your current directory.
 
