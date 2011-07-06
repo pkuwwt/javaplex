@@ -245,7 +245,7 @@ Let's build a stream with nontrivial filtration times.
 
 _House example._ The Matlab script corresponding to this section is `house_example.m`.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/houseFig.png
 
 We build a house, with the vertices and edges on the square appearing at time 0, with the top vertex appearing at time 1, with the roof edges appearing at times 2 and 3, and with the roof 2-simplex appearing at time 7.
 {{{
