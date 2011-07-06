@@ -602,7 +602,7 @@ We plot the two sets of landmark points to see the difference between random and
 >> title('Maxmin landmark selection');
 }}}
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/fig8lands.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/fig8lands.PNG
 
 Sequential maxmin seems to do a better job of choosing landmarks that cover the figure eight and that are spread apart. 
 
@@ -728,9 +728,9 @@ max_filtration_value)
 }}}
 The files `lazySphere_0.png`, `lazySphere_1.png`, and `lazySphere_2.png` are saved to your current directory.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_0.png
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_1.png
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_2.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_1.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_2.PNG
 
 _Exercise_:
 The first part of this exercise is the same as an exercise in Section [Tutorial#Explicit_metric_spaces Explicit metric spaces].
@@ -792,8 +792,8 @@ max_filtration_value)
 }}}
 The files `lazyRange_0.png` and `lazyRange_1.png` (and maybe `lazyRange_2.png`) are saved to your current directory.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazyRange_0.png
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazyRange_1.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazyRange_0.PNG
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazyRange_1.PNG
 Betti intervals for the lazy witness complex built from _X^5^(300,30)_
 
 The plots above show that for a long range, the circle Betti numbers _Betti,,0,, = Betti,,1,, = 1_ are obtained. Your plot should contain a similar range. This is good evidence that the core subset _X^5^(300,30)_ is well-approximated by a circle. 
