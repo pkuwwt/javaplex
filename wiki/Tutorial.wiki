@@ -298,9 +298,11 @@ or as a list with entries of the form _k: Betti,,k_.
 betti_numbers_string = {0: 1, 1: 1}
 }}}
 
-The Matlab function `plot_barcodes.m` lets us display the intervals as Betti barcodes. The four inputs are `intervals`, the minimum dimension barcode to plot, the maximum dimension barcode to plot, and a string for the filename. 
+The Matlab function `plot_barcodes.m` lets us display the intervals as Betti barcodes. The Matlab structure array `options` contains different options for the plot. We choose the filename `house` and we choose the maximum filtration time for the plot to be eight. 
 {{{
->> plot_barcodes(intervals, 0, 1, 'house')
+>> options.filename = 'house';
+>> options.max_filtration_value = 8;
+>> plot_barcodes(intervals, options);
 }}}
 The file `house.png` is saved to your current directory.
 
