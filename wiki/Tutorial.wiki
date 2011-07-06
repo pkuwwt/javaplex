@@ -486,8 +486,7 @@ _House example._ Let's build a Vietoris-Rips stream from the house point cloud i
 >> num_divisions = 100; 
 
 >> point_cloud = examples.PointCloudExamples.getHouseExample(); 
->> stream = api.Plex4.createVietorisRipsStream(point_cloud, max_dimension,  % overflow
-max_filtration_value, num_divisions);
+>> stream = api.Plex4.createVietorisRipsStream(point_cloud, max_dimension, max_filtration_value, num_divisions);
 }}}
 The order of the inputs is `createVietorisRipsStream`(_Z_,_d,,max_,,_,_t,,max,,_,_N_). For a Vietoris-Rips stream, the parameter _t,,max,,_ is the maximum possible edge length. Since _t,,max,, = 4_ is greater than the diameter (_√10_) of our point cloud, all edges will eventually form. 
 
@@ -521,8 +520,7 @@ Load the file `pointsTorusGrid.mat`. The matrix `pointsTorusGrid` appears in you
 >> size(point_cloud) 
 ans = 400    4         # 400 points in dimension 4
 
->> stream = api.Plex4.createVietorisRipsStream(point_cloud, max_dimension,  % overflow
-max_filtration_value, num_divisions);  
+>> stream = api.Plex4.createVietorisRipsStream(point_cloud, max_dimension, max_filtration_value, num_divisions);  
 >> num_simplices = stream.getSize() 
 num_simplices = 82479
 
@@ -550,8 +548,7 @@ This example makes it clear that the computed ``semi-infinite'' intervals do not
 
 _Remark._ We can build Vietoris-Rips streams not only on top of Euclidean point clouds, but also on top of explicit metric spaces. For example, if `m_space` were an explicit metric space, then we could call a command such as
 {{{
->> stream = api.Plex4.createVietorisRipsStream(m_space, max_dimension,  % overflow
-max_filtration_value, num_divisions);  
+>> stream = api.Plex4.createVietorisRipsStream(m_space, max_dimension, max_filtration_value, num_divisions);  
 }}}
 
 _Exercise_:
@@ -645,7 +642,7 @@ _Torus example._ Let's build a witness stream instance for 10,000 random points 
 >> max_dimension = 3; 
 >> num_divisions = 100; 
 
->> point_cloud = examples.PointCloudExamples.getRandomSphereProductPoints(num_points, 1, 2);  % overflow
+>> point_cloud = examples.PointCloudExamples.getRandomSphereProductPoints(num_points, 1, 2);
 >> landmark_selector = api.Plex4.createRandomSelector(point_cloud, num_landmark_points);
 }}}
 The next command returns the landmark covering measure `R` from [Tutorial#Landmark_selection Landmark selection].  Often the value for _t,,max,,_ is chosen in proportion to `R`.
