@@ -500,7 +500,7 @@ We display the Betti intervals.
 }}}
 The file `ripsHouse.png` is saved to your current directory.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsTorus.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse.png
 
 Check that these plots are consistent with the Vietoris-Rips definition: edges `[3,5]` and `[4,5]` appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
 
@@ -530,7 +530,7 @@ num_simplices = 82479
 }}}
 The file `ripsTorus.png` is saved to your current directory.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsTorus.png
 
 The diameter of this torus (before adding noise) is _√8_, so choosing _t,,max,, = 0.9_ likely will not show all homological activity. However, the torus will be reasonably connected by this time. Note the semi-infinite intervals match the correct numbers _Betti,,0,, = 1_, _Betti,,1,, = 2_, _Betti,,2,, = 1_ for a torus.
 
