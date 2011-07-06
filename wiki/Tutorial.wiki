@@ -492,19 +492,17 @@ The order of the inputs is `createVietorisRipsStream`(_Z_,_d,,max_,,_,_t,,max,,_
 Since _d,,max = 3_ we can compute up to second dimensional persistent homology. 
 {{{
 >> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
->> filtration_index_intervals = persistence.computeIntervals(stream); 
->> filtration_value_intervals = stream.transform(filtration_index_intervals);
+>> intervals = persistence.computeIntervals(stream);
 }}}
-We display the Betti intervals. Typically the last input for the method `createBarcodePlot` will be _t,,max,,_, since there is no reason to display filtration times that we haven't computed.
+We display the Betti intervals.
 {{{
 >> api.Plex4.createBarcodePlot(filtration_value_intervals, 'ripsHouse', max_filtration_value)
 }}}
-The files `ripsHouse_0.png` and `ripsHouse_1.png` are saved to your current directory.
+The file `ripsHouse.png` is saved to your current directory.
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_0.png
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse_1.png
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsHouse.png
 
-The second dimensional Betti plot does not appear because there are no _Betti,,2,,_ intervals. Check that these plots are consistent with the Vietoris-Rips definition: edges `[3,5]` and `[4,5]` appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
+Check that these plots are consistent with the Vietoris-Rips definition: edges `[3,5]` and `[4,5]` appear at filtration time _t = √2_; the square appears at _t = 2_; the square closes at _t = √8_. 
 
 _Torus example._ Try the following sequence of commands. We start with 400 points from a _20 x 20_ grid on the unit torus _S^1^ x S^1^_ in _R^4^_, and add a small amount of noise to each point.
 
@@ -527,16 +525,15 @@ max_filtration_value, num_divisions);
 num_simplices = 82479
 
 >> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
->> filtration_index_intervals = persistence.computeIntervals(stream); 
->> filtration_value_intervals = stream.transform(filtration_index_intervals); 
->> api.Plex4.createBarcodePlot(filtration_value_intervals, 'ripsTorus', max_filtration_value)
+>> intervals = persistence.computeIntervals(stream);
+>> plot_barcodes(intervals, 0, max_dimension - 1, 'ripsTorus', 'ripsTorus', 'png', true)
 }}}
-The files `ripsTorus_0.png`, `ripsTorus_1.png` and `ripsTorus_2.png` are saved to your current directory. We do not show these figures because the plots are very tall. 
+The file `ripsTorus.png` is saved to your current directory. We do not show these figures because the plots are very tall. 
 
 The diameter of this torus (before adding noise) is _√8_, so choosing _t,,max,, = 0.9_ likely will not show all homological activity. However, the torus will be reasonably connected by this time. Note the semi-infinite intervals match the correct numbers _Betti,,0,, = 1_, _Betti,,1,, = 2_, _Betti,,2,, = 1_ for a torus.
 
 {{{
->> infinite_barcodes = filtration_value_intervals.getInfiniteIntervals(); 
+>> infinite_barcodes = intervals.getInfiniteIntervals(); 
 >> betti_numbers_array = infinite_barcodes.getBettiSequence()
 betti_numbers_array =
 
