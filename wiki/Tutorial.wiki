@@ -729,16 +729,16 @@ R = 0.6877     # Generally close to 0.7
 >> num_simplices = stream.getSize() 
 num_simplices = 79842    # Generally between 30000 and 180000
 >> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
->> filtration_index_intervals = persistence.computeIntervals(stream); 
->> filtration_value_intervals = stream.transform(filtration_index_intervals); 
->> api.Plex4.createBarcodePlot(filtration_value_intervals, 'lazySphere',  
-max_filtration_value) 
-}}}
-The files `lazySphere_0.png`, `lazySphere_1.png`, and `lazySphere_2.png` are saved to your current directory.
+>> intervals = persistence.computeIntervals(stream);
 
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_0.PNG
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_1.PNG
-http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere_2.PNG
+>> options.filename = 'lazySphere';
+>> options.max_filtration_value = max_filtration_value;
+>> options.max_dimension = max_dimension - 1;
+>> plot_barcodes(intervals, options);
+}}}
+The file `lazySphere.png` is saved to your current directory.
+
+http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/lazySphere.png
 
 _Exercise_:
 The first part of this exercise is the same as an exercise in Section [Tutorial#Explicit_metric_spaces Explicit metric spaces].
