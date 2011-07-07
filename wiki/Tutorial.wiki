@@ -536,7 +536,7 @@ num_simplices = 82479
 >> options.side_by_side = true;
 >> plot_barcodes(intervals, options);
 }}}
-Setting the parameter \texttt{options.side\_by\_side} equal to \texttt{true} makes it such that the Betti barcodes of different dimensions are plotted side by side instead of above and below each other. The file `ripsTorus.png` is saved to your current directory.
+Setting the parameter `options.side_by_side` equal to `true` makes it such that the Betti barcodes of different dimensions are plotted side by side instead of above and below each other. The file `ripsTorus.png` is saved to your current directory.
 
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/ripsTorus.png
 
