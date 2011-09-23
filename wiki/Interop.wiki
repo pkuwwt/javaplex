@@ -31,7 +31,7 @@ from edu.stanford.math.plex4 import *
 
 The following example shows how to run from Java. 
 
-In a folder of your choice, download the file javaplex-4.0.0.jar. In the same folder, create a file named "WitnessComplexDemo.java" with the following contents:
+In a folder of your choice, download the file javaplex-4.0.0.jar. In the same folder, create a file named WitnessComplexDemo.java with the following contents:
 
 {{{
 import edu.stanford.math.plex4.api.Plex4;
