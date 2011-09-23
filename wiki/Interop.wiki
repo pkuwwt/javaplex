@@ -85,4 +85,4 @@ To run it, execute:
 java -classpath .:javaplex-4.0.0.jar WitnessComplexDemo
 }}}
 
-Alternatively, one may use an IDE such as [www.eclipse.org/ Eclipse] and import the necessary jar files.
+Alternatively, one may use an IDE such as [http://www.eclipse.org Eclipse] and import the necessary jar files.
