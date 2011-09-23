@@ -61,16 +61,15 @@ public class WitnessComplexDemo {
 		LazyWitnessStream<double[]> stream = new LazyWitnessStream<double[]>(metricSpace, landmarkSelector, d + 1, maxDistance, 20);
 		stream.finalizeStream();
 		
-		System.out.println("Number of simplices in complex: " + stream.getSize());
+		System.out.println("Number of simpleces in complex: " + stream.getSize());
 		
 		AbstractPersistenceAlgorithm<Simplex> algorithm = Plex4.getDefaultSimplicialAlgorithm(d + 1);
 		
 		BarcodeCollection<Integer> intervals = algorithm.computeIntervals(stream);
 		
-		System.out.println("\nBarcodes:");
+		System.out.println("\nBarcodes for " + d + "-sphere:");
 		System.out.println(intervals);
 	}
-
 }
 }}}
 
