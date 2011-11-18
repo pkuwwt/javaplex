@@ -167,6 +167,7 @@ Next we add simplicies using the methods `addVertex` and `addElement`. The first
 >> stream.addElement([0, 1]);
 >> stream.addElement([0, 2]);
 >> stream.addElement([1, 2]);
+>> stream.finalizeStream();
 }}}
 
 We print the total number of simplices in the complex.
@@ -262,6 +263,7 @@ We build a house, with the vertices and edges on the square appearing at time 0,
 >> stream.addElement([3, 5], 2); 
 >> stream.addElement([4, 5], 3); 
 >> stream.addElement([3, 4, 5], 7);
+>> stream.finalizeStream();
 }}}
 We get the default persistence computation,
 {{{
