@@ -136,7 +136,7 @@ Persistent homology depends heavily on functoriality: for _t ≤ s_, the inclusi
 In javaPlex, filtered simplicial complexes (or more generally filtered chain complexes) are called streams. The class `ExplicitSimplexStream` allows one to build a simplicial complex from scratch. In [Tutorial#Streams_from_point_cloud_data Streams from point cloud data] we will learn about other automated methods of generating simplicial complexes; namely the Vietoris-Rips, witness, and lazy witness constructions. 
 
 
-== Explicit simplex streams and homology ==
+== Computing homology ==
 
 You should change your current Matlab directory to `tutorial_examples`, perhaps using the following command.
 {{{
@@ -259,7 +259,7 @@ Build a simplicial complex homeomorphic to the projective plane. Find its Betti 
 
 
 
-== Explicit simplex streams and persistent homology ==
+== Computing persistent homology ==
 
 Let's build a stream with nontrivial filtration times. 
 
@@ -512,7 +512,7 @@ Note that _VR(Z,t)_ is a subcomplex of _VR(Z,s)_ whenever _t ≤ s_, so the Viet
 
 The Matlab script corresponding to this section is `rips_example.m`. 
 
-_House example._ Let's build a Vietoris-Rips stream from the house point cloud in [Tutorial#Euclidean_metric_spaces Euclidean metric spaces]. Note this stream is different than the explicit house stream we built in [Tutorial#Explicit_simplex_streams_and_persistent_homology Explicit simplex streams and persistent homology].
+_House example._ Let's build a Vietoris-Rips stream from the house point cloud in [Tutorial#Euclidean_metric_spaces Euclidean metric spaces]. Note this stream is different than the explicit house stream we built in [Tutorial#Computing_persistent_homology Computing persistent homology].
 {{{
 >> max_dimension = 3; 
 >> max_filtration_value = 4; 
