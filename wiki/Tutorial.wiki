@@ -325,7 +325,7 @@ We can print the Betti numbers (at the largest filtration time 7) as an array
 >> betti_numbers_array = infinite_barcodes.getBettiSequence()
 }}}
 
-or as a list with entries of the form _k: Betti,,k_.
+or as a list with entries of the form _k: Betti,,k,,_.
 {{{
 >> betti_numbers_string = infinite_barcodes.getBettiNumbers()
 betti_numbers_string = {0: 1, 1: 1}
