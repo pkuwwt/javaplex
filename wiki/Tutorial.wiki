@@ -290,8 +290,7 @@ We get the persistence algorithm with coefficients in the field of two elements
 }}}
 and compute the intervals.
 {{{
->> intervals = persistence.computeIntervals(stream);
-
+>> intervals = persistence.computeIntervals(stream)
 intervals =
 
 Dimension: 1
@@ -303,6 +302,19 @@ Dimension: 0
 }}}
 
 There are four intervals. The first is a _Betti,,1,,_ interval, starting at filtration time 3 and ending at 7. This 1-dimensional hole is formed by the three edges of the roof. It forms when edge `[4,5]` appears at filtration time 3 and closes when 2-simplex `[3,4,5]` appears at filtration time 7.
+
+We compute a representative cycle for each barcode.
+{{{
+>> intervals = persistence.computeAnnotatedIntervals(stream)
+intervals =
+
+Dimension: 1
+[3.0, 7.0): [4,5] + [3,4] + -[3,5]
+[0.0, infinity): [1,4] + [2,3] + [1,2] + [3,4]
+Dimension: 0
+[1.0, 2.0): -[3] + [5]
+[0.0, infinity): [1]
+}}}
 
 One _Betti,,0,,_ interval and one _Betti,,1,,_ interval are semi-infinite. 
 {{{
