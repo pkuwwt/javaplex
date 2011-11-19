@@ -284,9 +284,9 @@ We build a house, with the vertices and edges on the square appearing at time 0,
 >> stream.addElement([3, 4, 5], 7);
 >> stream.finalizeStream();
 }}}
-We get the default persistence computation,
+We get the persistence algorithm with coefficients in the field of two elements
 {{{
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(3);
+>> persistence = api.Plex4.getModularSimplicialAlgorithm(3, 2);
 }}}
 and compute the intervals.
 {{{
@@ -513,7 +513,7 @@ The order of the inputs is `createVietorisRipsStream`(_Z_,_d,,max_,,_,_t,,max,,_
 
 Since _d,,max = 3_ we can compute up to second dimensional persistent homology. 
 {{{
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> persistence = api.Plex4.getModularSimplicialAlgorithm(max_dimension, 2);
 >> intervals = persistence.computeIntervals(stream);
 }}}
 We display the Betti intervals. Parameter `options.max_filtration_value` is the largest filtration time to be displayed. Typically `options.max_filtration_value` is chosen to be `max_filtration_value`. Parameter `options.max_dimension` is the largest persistent homology dimension to be displayed. Typically `options.max_dimension` is chosen to be `max_dimension - 1` because in a stream with simplices computed up to dimension _d,,max,,_ we can only compute persistent homology up to dimension _d,,max,, - 1_.
@@ -548,7 +548,7 @@ ans = 400    4         # 400 points in dimension 4
 >> num_simplices = stream.getSize() 
 num_simplices = 82479
 
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> persistence = api.Plex4.getModularSimplicialAlgorithm(max_dimension, 2);
 >> intervals = persistence.computeIntervals(stream);
 
 >> options.filename = 'ripsTorus';
@@ -689,7 +689,7 @@ num_simplices = 1858      # Generally close to 2000
 }}}
 We plot the Betti intervals.
 {{{
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max,,_dimension); 
+>> persistence = api.Plex4.getModularSimplicialAlgorithm(max_dimension, 2); 
 >> intervals = persistence.computeIntervals(stream); 
 
 >> options.filename = 'witnessTorus';
@@ -749,7 +749,7 @@ R = 0.6877     # Generally close to 0.7
 >> stream.finalizeStream() 
 >> num_simplices = stream.getSize() 
 num_simplices = 79842    # Generally between 30000 and 180000
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> persistence = api.Plex4.getModularSimplicialAlgorithm(max_dimension, 2);
 >> intervals = persistence.computeIntervals(stream);
 
 >> options.filename = 'lazySphere';
@@ -813,7 +813,7 @@ R = 0.7759      # Generally close to 0.75
 >> num_simplices = stream.getSize() 
 num_simplices = 12036       # Generally between 10000 and 25000
 
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(max_dimension); 
+>> persistence = api.Plex4.getModularSimplicialAlgorithm(max_dimension, 2);
 >> intervals = persistence.computeIntervals(stream); 
 
 >> options.filename = 'lazyRange';
