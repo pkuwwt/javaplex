@@ -925,7 +925,7 @@ _Prime numbers example._ The Matlab script corresponding to this example is `cor
 
 The command `primes(3571)` returns a vector listing all prime numbers less than or equal to 3571, which is the 500-th prime. We think of these primes as points on the real line and build the core subset of the 10 densest points with density parameter _k = 1_.
 {{{
->> p = primes(3571)<nowiki>'</nowiki>; 
+>> p = primes(3571)'; 
 >> length(p) 
 ans = 500 
 >> densities1 = kDensitySlow(p, 1); 
