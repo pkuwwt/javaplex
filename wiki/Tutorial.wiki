@@ -176,9 +176,9 @@ We print the total number of simplices in the complex.
 num_simplices = 6
 }}}
 
-In order to compute the homology of our complex, we first create an object that will perform the computation. The following line obtains the default algorithm for performing simplicial homology. There are other variants on the persistence algorithm, and one can also change the ground field. This default object will perform the homology computation with coefficients in the field of 2 elements. The input parameter 3 indicates that homology will be computed in dimensions 0, 1, and 2 — that is, in all dimensions strictly less than 3.
+We create an object that will compute the homology of our complex. The first input parameter 3 indicates that homology will be computed in dimensions 0, 1, and 2 — that is, in all dimensions strictly less than 3. The second input 2 means that we will compute homology with coefficients in the field of two elements, and this input can be any prime number.
 {{{
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(3);
+>> persistence = api.Plex4.getModularSimplicialAlgorithm(3, 2);
 }}}
 We compute and print the intervals.
 {{{
@@ -186,11 +186,24 @@ We compute and print the intervals.
 circle_intervals = 
 
 Dimension: 1 
-[0, infinity) 
+[0.0, infinity) 
 Dimension: 0 
-[0, infinity)
+[0.0, infinity)
 }}}
 This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,1,,=1_.
+
+We can also compute a representative cycle for each barcode.
+{{{
+>> circle_intervals = persistence.computeAnnotatedIntervals(stream)
+circle_intervals =
+
+Dimension: 1
+[0.0, infinity): [1,2] + [0,2] + [0,1]
+Dimension: 0
+[0.0, infinity): [0]
+}}}
+
+A representative cycle generating the single 0-dimensional homology class is _[0]_, and a representative cycle generating the single 1-dimensional homology class is _[1,2] + [0,2] + [0,1]_.
 
 _9-sphere example._ Let's build a 9-sphere, which is homeomorphic to the boundary of a 10-simplex. First we add a single 10-simplex to an empty explicit simplex stream. The result is not a simplicial complex because it does not contain the faces of the 10-simplex. We add all faces using the method `ensureAllFaces`. Then, we remove the 10-simplex using the method `removeElementIfPresent`. What remains is the boundary of a 10-simplex, that is, a 9-sphere.
 
