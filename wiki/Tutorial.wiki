@@ -203,7 +203,7 @@ Dimension: 0
 [0.0, infinity): [0]
 }}}
 
-A representative cycle generating the single 0-dimensional homology class is _[0]_, and a representative cycle generating the single 1-dimensional homology class is _[1,2] + [0,2] + [0,1]_.
+A representative cycle generating the single 0-dimensional homology class is `[0]`, and a representative cycle generating the single 1-dimensional homology class is `[1,2] + [0,2] + [0,1]`.
 
 _9-sphere example._ Let's build a 9-sphere, which is homeomorphic to the boundary of a 10-simplex. First we add a single 10-simplex to an empty explicit simplex stream. The result is not a simplicial complex because it does not contain the faces of the 10-simplex. We add all faces using the method `ensureAllFaces`. Then, we remove the 10-simplex using the method `removeElementIfPresent`. What remains is the boundary of a 10-simplex, that is, a 9-sphere.
 
