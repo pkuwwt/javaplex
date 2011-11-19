@@ -523,7 +523,7 @@ _House example._ Let's build a Vietoris-Rips stream from the house point cloud i
 }}}
 The order of the inputs is `createVietorisRipsStream`(_Z_,_d,,max_,,_,_t,,max,,_,_N_). For a Vietoris-Rips stream, the parameter _t,,max,,_ is the maximum possible edge length. Since _t,,max,, = 4_ is greater than the diameter (_√10_) of our point cloud, all edges will eventually form. 
 
-Since _d,,max = 3_ we can compute up to second dimensional persistent homology. 
+Since _d,,max,, = 3_ we can compute up to second dimensional persistent homology. 
 {{{
 >> persistence = api.Plex4.getModularSimplicialAlgorithm(max_dimension, 2);
 >> intervals = persistence.computeIntervals(stream);
