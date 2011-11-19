@@ -894,7 +894,8 @@ The Euler characteristic is 2 = 1 - 0 + 0 - 0 + 0 - 0 + 1, using the alternating
 
 
 == Representative cycles ==
-The persistence algorithm that computes barcodes can also find a representative cycle for each homology class. However, there is no guarantee that the produced representative will be geometrically nice. 
+
+The persistence algorithm that computes barcodes can also find a representative cycle for each barcode. We do several examples of this in Section [Tutorial#Explicit_Simplex_Streams Explicit Simplex Streams]. However, there is no guarantee that the produced representative will be geometrically nice. 
 
 
 
