@@ -224,9 +224,9 @@ We print the total number of simplices in the complex.
 num_simplices = 2046
 }}}
 
-We get the default persistence computation
+We get the persistence algorithm
 {{{
->> persistence = api.Plex4.getDefaultSimplicialAlgorithm(dimension + 1);
+persistence = api.Plex4.getModularSimplicialAlgorithm(dimension + 1, 2);
 }}}
 and compute and print the intervals.
 {{{
@@ -234,11 +234,17 @@ and compute and print the intervals.
 n_sphere_intervals = 
 
 Dimension: 9
-[0, infinity)
+[0.0, infinity)
 Dimension: 0
-[0, infinity)
+[0.0, infinity)
 }}}
 This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,9,,=1_. 
+
+Try computing a representative cycle for each barcode.
+{{{
+>> n_sphere_intervals = persistence.computeAnnotatedIntervals(stream)
+}}}
+We don't display the output from this command in the tutorial, because the representative 9-cycle is very long and contains all eleven 9-simplices.
 
 See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solutions.
 
