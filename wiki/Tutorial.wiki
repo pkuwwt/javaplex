@@ -379,10 +379,10 @@ You can enter these coordinates manually.
 point_cloud = 
 
 -1     0
-  1     0
-  1     2
+ 1     0
+ 1     2
 -1     2
-  0     3
+ 0     3
 }}}
 
 Or, these coordinates are stored as a javaPlex example.
