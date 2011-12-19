@@ -468,7 +468,6 @@ _House example._ The matrix `distances` summarizes the metric for our house poin
 
 distances =
 
-
 0  2.0000  2.8284  2.0000  3.1623
 2.0000  0  2.0000  2.8284  3.1623
 2.8284  2.0000  0  2.0000  1.4142
