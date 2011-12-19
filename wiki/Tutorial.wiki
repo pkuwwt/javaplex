@@ -376,6 +376,13 @@ http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/houseCoord.pn
 You can enter these coordinates manually.
 {{{
 >> point_cloud = [-1,0; 1,0; 1,2; -1,2; 0,3]
+point_cloud = 
+
+-1     0
+  1     0
+  1     2
+-1     2
+  0     3
 }}}
 
 Or, these coordinates are stored as a javaPlex example.
@@ -391,6 +398,7 @@ We can return the coordinates of a specific point. Note the points are indexed s
 {{{
 >> m_space.getPoint(0)
 ans =
+
   -1
    0
 }}}
@@ -398,6 +406,7 @@ ans =
 {{{
 >> m_space.getPoint(2)
 ans =
+
    1
    2
 }}}
