@@ -325,6 +325,10 @@ One _Betti,,0,,_ interval and one _Betti,,1,,_ interval are semi-infinite.
 We can print the Betti numbers (at the largest filtration time 7) as an array
 {{{
 >> betti_numbers_array = infinite_barcodes.getBettiSequence()
+betti_numbers_array = 
+
+1
+1
 }}}
 
 or as a list with entries of the form _k: Betti,,k,,_.
