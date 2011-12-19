@@ -945,6 +945,7 @@ The command `primes(3571)` returns a vector listing all prime numbers less than 
 ans = 500 
 >> densities1 = kDensitySlow(p, 1); 
 >> core1 = coreSubset(p, densities1, 10) 
+
 core1 =
    2
    3
@@ -962,6 +963,7 @@ We get a bunch of twin primes, which makes sense since _k = 1_. Let's repeat wit
 {{{
 >> densities50 = kDensitySlow(p, 50); 
 >> core50 = coreSubset(p, densities50, 10) 
+
 core50 =
   113
   127
