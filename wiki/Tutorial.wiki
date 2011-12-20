@@ -1110,7 +1110,7 @@ M. A. Armstrong. _Basic Topology_. Springer, New York, Berlin, 1983.
 
 G. Carlson, T. Ishkhanov, V. de Silva, and A. Zomorodian. _On the local behavior of spaces of natural images. _Int. J. Computer Vision_, 76:1-12, 2008.
 
-V. de Silva and G. Carlsson. _Topological estimation using witness complexes. In _Eurographics Symposium on Point-Based Graphics_, June 2004.
+V. de Silva and G. Carlsson. Topological estimation using witness complexes. In _Eurographics Symposium on Point-Based Graphics_, June 2004.
 
 H. Edelsbrunner and J. Harer. _Computational Topology: An Introduction_. American Mathematical Society, Providence, 2010.
 
