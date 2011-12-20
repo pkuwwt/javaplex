@@ -1106,20 +1106,18 @@ See the Matlab script `exercise_5_4_5.m` and the Matlab function `flatKleinDista
 
 H. Adams and G. Carlsson. On the nonlinear statistics of range image patches. _SIAM J. Img. Sci._, 2: 110-117, 2009.
 
-M. A. Armstrong, _Basic Topology_, Springer, New York, Berlin, 1983.
+M. A. Armstrong. _Basic Topology_. Springer, New York, Berlin, 1983.
 
-G. Carlson, T. Ishkhanov, V. de Silva, and A. Zomorodian, _On the local behavior of spaces of natural images_, Int. J. Computer Vision, 76 (2008), pp. 1-12.
+G. Carlson, T. Ishkhanov, V. de Silva, and A. Zomorodian. _On the local behavior of spaces of natural images. _Int. J. Computer Vision_, 76:1-12, 2008.
 
-V. de Silva and G. Carlsson, _Topological estimation using witness complexes_, in Proceedings of the Symposium on Point-Based Graphics, ETH, Zürich, Switzerland, 2004, pp. 157-166.
+V. de Silva and G. Carlsson. _Topological estimation using witness complexes. In _Eurographics Symposium on Point-Based Graphics_, June 2004.
 
-H. Edelsbrunner and J. Harer, _Computational Topology: An Introduction_, American Mathematical Society, Providence, 2010.
+H. Edelsbrunner and J. Harer. _Computational Topology: An Introduction_. American Mathematical Society, Providence, 2010.
 
 H. Edelsbrunner, D. Letscher, and A. Zomorodian, _Topological persistence and simplification_,  Discrete Computat. Geom., 28 (2002), pp. 511-533.
 
-A. Hatcher, _Algebraic Topology_, Cambridge University Press, Cambridge, UK, 2002.
+A. Hatcher. _Algebraic Topology_. Cambridge University Press, Cambridge, 2002.
 
-A. B. Lee, K. S. Pedersen, and D. Mumford, _The nonlinear statistics of high-contrast patches in natural images_, Int. J. Computer Vision, 54 (2003), pp. 83-103.
+A. B. Lee, K. S. Pedersen, and D. Mumford. The nonlinear statistics of high-contrast patches in natural images. _Int. J. Comput. Vision_, 54:83-103, 2003.
 
-H. Sexton and M. Vejdemo-Johansson, JPlex simplicial complex library. http://comptop.stanford.edu/programs/jplex/.
-
-A. Zomorodian and G. Carlsson, _Computing persistent homology_, Discrete Computat. Geom., 33 (2005), pp. 247-274. 
+A. Zomorodian and G. Carlsson. Computing persistent homology. _Discrete Comput. Geom_., 33:249-274, 2005.
