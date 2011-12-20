@@ -98,7 +98,7 @@ See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solut
 
 = Math review =
 
-Below is a brief math review. For more details, see Armstrong [1983], Edelsbrunner and Harer [2010], Hatcher [2002], and Zomorodian and Carlsson [2005].
+Below is a brief math review. For more details, see Armstrong (1983), Edelsbrunner and Harer (2010), Edelsbrunner et al. (2002), Hatcher (2002), and Zomorodian and Carlsson (2005).
 
 == Simplicial complexes ==
 
@@ -247,7 +247,7 @@ We don't display the output from this command in the tutorial, because the repre
 See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solutions.
 
 _Exercise_: 
-Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices. 
+Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices_ (Hatcher 2002, page 107). _We recommend using a _3x3_ grid of 9 vertices. 
 
 _Exercise_:
 Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
@@ -501,7 +501,7 @@ This exercise is continued by an exercise in [Tutorial#Lazy_witness_streams Lazy
 = Streams from point cloud data =
 
 
-In [Tutorial#Explicit_simplex_streams Explicit simplex streams] we built streams explicitly, or by hand. In this section we construct streams from a point cloud _Z_. We build Vietoris-Rips, witness, and lazy witness streams. See de Silva-Carlsson (2004) for additional information. 
+In [Tutorial#Explicit_simplex_streams Explicit simplex streams] we built streams explicitly, or by hand. In this section we construct streams from a point cloud _Z_. We build Vietoris-Rips, witness, and lazy witness streams. See de Silva and Carlsson (2004) for additional information. 
 
 The Vietoris-Rips, witness, and lazy witness streams all take three of the same inputs: the maximum dimension _d,,max,,_, the maximum filtration time _t,,max,,_, and the number of divisions _N_. These inputs allow the user to limit the size of the constructed stream, for computational efficiency. No simplices above dimension _d,,max,,_ are included. The persistent homology of the resulting stream can be calculated only up to dimension _d,,max,, - 1_ (do you see why?). Also, instead of computing complex _X(t)_ for all _t ≥ 0_, we only compute _X(t)_ for _t_ in _{0, t,,max,,/(N-1), 2t,,max,,/(N-1), 3t,,max,,/(N-1), ..., (N-2)t,,max,,/(N-1), t,,max,, }_.
 
@@ -619,7 +619,7 @@ For larger datasets, if we include every data point as a vertex, as in the Vieto
 
 There are two common methods for selecting landmark points. The first is to choose the landmarks _L_ randomly from point cloud _Z_. The second is a greedy inductive selection process called sequential maxmin. In sequential maxmin, the first landmark is picked randomly from _Z_. Inductively, if _L,,i-1,,_ is the set of the first _i-1_ landmarks, then let the _i_-th landmark be the point of _Z_ which maximizes the function _z -> d(z, L,,i-1,,)_, where _d(z, L,,i-1,,)_ is the distance between the point _z_ and the set _L,,i-1,,_. 
 
-Landmarks chosen using sequential maxmin tend to cover the dataset and to be spread apart from each other. A disadvantage is that outlier points tend to be selected. Sequential maxmin landmarks are used in Adams-Carlsson (2009) and Carlsson-Ishkanov-de Silva-Zomorodian (2008). 
+Landmarks chosen using sequential maxmin tend to cover the dataset and to be spread apart from each other. A disadvantage is that outlier points tend to be selected. Sequential maxmin landmarks are used by Adams and Carlsson (2009) and Carlsson et al. (2008). 
 
 The Matlab script corresponding to this section is `landmark_example.m`.
 
@@ -729,7 +729,7 @@ The witness stream above contains approximately 2,000 simplices, fewer than the 
 
 
 == Lazy witness streams ==
-A lazy witness stream is similar to a witness stream. However, there is an extra parameter _v_, typically chosen to be 0, 1, or 2, which helps determine how the lazy witness complexes _LW,,v,,(Z,L,t)_ are constructed. See de Silva-Carlsson (2004) for more information. 
+A lazy witness stream is similar to a witness stream. However, there is an extra parameter _v_, typically chosen to be 0, 1, or 2, which helps determine how the lazy witness complexes _LW,,v,,(Z,L,t)_ are constructed. See de Silva and Carlsson (2004) for more information. 
 
 Suppose we are given a point cloud _Z_, landmark subset _L_, and natural number parameter _v_. If _v = 0_, let _m(z) = 0_ for all _z_ in _Z_. If _v > 0_, let _m(z)_ be the distance from _z_ to the _v_-th closest landmark point. The lazy witness complex _LW,,v,,(Z,L,t)_ is defined as follows.
 
@@ -808,7 +808,7 @@ Build a lazy witness stream on this explicit metric space with 50 landmarks chos
 
 We now do an example with real data. The corresponding Matlab script is `image_patch_examples.m`, and it relies on the files `pointsRange.mat` and `dct.m`. 
 
-In _On the nonlinear statistics of range image patches_ (Adams-Carlsson 2009), we study a space of range image patches drawn from the Brown database (Lee-Pedersen-Mumford 2003). A range image is like an optical image, except that each pixel contains a distance instead of a grayscale value. Our space contains high-contrast, normalized, _5 x 5_ pixel patches. We write each _5 x 5_ patch as a vector with 25 coordinates and think of our patches as point cloud data in _R^25^_. We select from this space the 30% densest vectors, based on a density estimator called _p,,300,,_ (see Appendix [Tutorial#Dense_core_subsets Dense core subsets]). In (Adams-Carlsson 2009) this dense core subset is denoted _X^5^(300,30)_, and it contains 15,000 points. In the next example we verify a result from (Adams-Carlsson 2009): _X^5^(300,30)_ has the topology of a circle. 
+In _On the nonlinear statistics of range image patches_ (Adams and Carlsson 2009), we study a space of range image patches drawn from the Brown database (Lee et al. 2003). A range image is like an optical image, except that each pixel contains a distance instead of a grayscale value. Our space contains high-contrast, normalized, _5 x 5_ pixel patches. We write each _5 x 5_ patch as a vector with 25 coordinates and think of our patches as point cloud data in _R^25^_. We select from this space the 30% densest vectors, based on a density estimator called _p,,300,,_ (see Appendix [Tutorial#Dense_core_subsets Dense core subsets]). In Adams and Carlsson (2009) this dense core subset is denoted _X^5^(300,30)_, and it contains 15,000 points. In the next example we verify a result from Adams and Carlsson (2009): _X^5^(300,30)_ has the topology of a circle. 
 
 Load the file `pointsRange.mat`. The matrix `pointsRange` appears in your Matlab workspace.
 {{{
@@ -850,7 +850,7 @@ Betti intervals for the lazy witness complex built from _X^5^(300,30)_
 
 The plots above show that for a long range, the circle Betti numbers _Betti,,0,, = Betti,,1,, = 1_ are obtained. Your plot should contain a similar range. This is good evidence that the core subset _X^5^(300,30)_ is well-approximated by a circle. 
 
-Our _5 x 5_ normalized patches are currently in the pixel basis: every coordinate corresponds to the range value at one of the 25 pixels. The Discrete Cosine Transform (DCT) basis is a useful basis for our patches (Adams-Carlsson 2009, Lee-Pedersen-Mumford 2003). We change to this basis in order to plot a projection of the loop evidenced by the barcode above. The method `dct.m` returns the DCT change-of-basis matrix for square patches of size specified by the input parameter.
+Our _5 x 5_ normalized patches are currently in the pixel basis: every coordinate corresponds to the range value at one of the 25 pixels. The Discrete Cosine Transform (DCT) basis is a useful basis for our patches (Adams and Carlsson 2009; Lee et al. 2003). We change to this basis in order to plot a projection of the loop evidenced by the barcode above. The method `dct.m` returns the DCT change-of-basis matrix for square patches of size specified by the input parameter.
 {{{
 >> pointsRangeDct = pointsRange * dct(5);
 }}}
@@ -916,7 +916,7 @@ A core subset of a dataset is a collection of the densest points, such as _X^5^(
 
 Real datasets can be very noisy, and outlier points can signiÞcantly alter the computed topology. Therefore, instead of trying to approximate the topology of an entire dataset, we often proceed as follows. We create a family of core subsets and identify their topologies. Looking at a variety of core subsets can give a good picture of the entire dataset. 
 
-See Carlsson-Ishkanov-de Silva-Zomorodian (2008) and de Silva-Carlsson (2004) for an example using multiple core subsets. The dataset contains high-contrast patches from natural images. The authors use three density estimators. As they change from the most global to the most local density estimate, the topologies of the core subsets change from a circle, to three intersecting circles, to a Klein bottle. 
+See Carlsson et al. (2008) and de Silva and Carlsson (2004) for an example using multiple core subsets. The dataset contains high-contrast patches from natural images. The authors use three density estimators. As they change from the most global to the most local density estimate, the topologies of the core subsets change from a circle, to three intersecting circles, to a Klein bottle. 
 
 One way to estimate the density of a point _z_ in a point cloud _Z_ is as follows. Let _p,,k,,(z)_ be the distance from _z_ to its _k_-th closest neighbor. Let the density estimate at _z_ be _1/p,,k,,(z)_. Varying parameter _k_ gives a family of density estimates. Using a small value for _k_ gives a local density estimate, and using a larger value for _k_ gives a more global estimate. 
 
@@ -985,7 +985,7 @@ _Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most effici
 Several exercise solutions are accompanied by Matlab scripts, which are available in the folder `tutorial_solutions`.
 
 _Exercise_: 
-Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices (Hatcher, p107). We recommend using a _3x3_ grid of 9 vertices.
+Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices_ (Hatcher 2002, page 107). _We recommend using a _3x3_ grid of 9 vertices. 
 
 _Solution_:
 See the Matlab script `exercise_3_1_1.m` in folder `tutorial_solutions` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides.
