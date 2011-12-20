@@ -1105,7 +1105,7 @@ See the Matlab script `exercise_5_4_5.m` and the Matlab function `flatKleinDista
 = Bibliography =
 
 H. Adams and G. Carlsson. On the nonlinear statistics of range image patches. _SIAM J. Img. Sci._, 2: 110-117, 2009.
-	
+
 M. A. Armstrong, _Basic Topology_, Springer, New York, Berlin, 1983.
 
 G. Carlson, T. Ishkhanov, V. de Silva, and A. Zomorodian, _On the local behavior of spaces of natural images_, Int. J. Computer Vision, 76 (2008), pp. 1-12.
