@@ -1114,7 +1114,7 @@ V. de Silva and G. Carlsson. Topological estimation using witness complexes. In 
 
 H. Edelsbrunner and J. Harer. _Computational Topology: An Introduction_. American Mathematical Society, Providence, 2010.
 
-H. Edelsbrunner, D. Letscher, and A. Zomorodian, _Topological persistence and simplification_,  Discrete Computat. Geom., 28 (2002), pp. 511-533.
+H. Edelsbrunner, D. Letscher, and A. Zomorodian. Topological persistence and simplification. _Discrete Comput. Geom._, 28:511-533, 2002.
 
 A. Hatcher. _Algebraic Topology_. Cambridge University Press, Cambridge, 2002.
 
