@@ -98,11 +98,7 @@ See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solut
 
 = Math review =
 
-Below is a brief math review. For more details, see 
-  * Armstrong: _Basic Topology_
-  * Edelsbrunner-Harer: _Computational Topology_
-  * Hatcher: _Algebraic Topology_
-  * Zomorodian-Carlsson: _Computing persistent homology_
+Below is a brief math review. For more details, see Armstrong [1983], Edelsbrunner and Harer [2010], Hatcher [2002], and Zomorodian and Carlsson [2005].
 
 == Simplicial complexes ==
 
