@@ -765,12 +765,12 @@ We use parameter _v = 1_.
 Often _t,,max,,_ is chosen in proportion to `R`. 
 {{{
 >> R = landmark_selector.getMaxDistanceFromPointsToLandmarks() 
-R = 0.37517          # Generally close to 0.38 
->> max_filtration_value = R; 
+R = 0.3841          # Generally close to 0.38 
+>> max_filtration_value = 2 * R;
 >> stream = streams.impl.LazyWitnessStream(landmark_selector.getUnderlyingMetricSpace(), landmark_selector, max_dimension, max_filtration_value, nu, num_divisions); 
 >> stream.finalizeStream() 
 >> num_simplices = stream.getSize() 
-num_simplices = 2775          # Generally close to 3000
+num_simplices = 56518          # Generally close to 50000
 >> persistence = api.Plex4.getModularSimplicialAlgorithm(max_dimension, 2);
 >> intervals = persistence.computeIntervals(stream);
 
