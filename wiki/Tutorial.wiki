@@ -619,7 +619,7 @@ For larger datasets, if we include every data point as a vertex, as in the Vieto
 
 There are two common methods for selecting landmark points. The first is to choose the landmarks _L_ randomly from point cloud _Z_. The second is a greedy inductive selection process called sequential maxmin. In sequential maxmin, the first landmark is picked randomly from _Z_. Inductively, if _L,,i-1,,_ is the set of the first _i-1_ landmarks, then let the _i_-th landmark be the point of _Z_ which maximizes the function _z -> d(z, L,,i-1,,)_, where _d(z, L,,i-1,,)_ is the distance between the point _z_ and the set _L,,i-1,,_. 
 
-Landmarks chosen using sequential maxmin tend to cover the dataset and to be spread apart from each other. A disadvantage is that outlier points tend to be selected. Sequential maxmin landmarks are used by Adams and Carlsson (2009) and Carlsson et al. (2008). 
+Landmarks chosen using sequential maxmin tend to cover the dataset and to be spread apart from each other. A disadvantage is that outlier points tend to be selected. However, outlier points are less of an issue if one first takes dense core subsets as in Appendix [Tutorial#Dense_core_subsets Dense core subsets]. Sequential maxmin landmarks are used by Adams and Carlsson (2009) and Carlsson et al. (2008). 
 
 The Matlab script corresponding to this section is `landmark_example.m`.
 
