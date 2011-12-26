@@ -686,7 +686,7 @@ Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metr
 
 The Matlab script corresponding to this section is `witness_example.m`.
 
-_Torus example._ Let's build a witness stream instance for 10,000 random points from the unit torus _S^1^ x S^1^_ in _R^4^_, with 50 random landmarks.
+_Torus example._ Let's build a witness stream instance for 10,000 random points from the unit torus _S^1^ x S^1^_ in _R^4^_, with 50 sequential maxmin landmarks.
 {{{
 >> num_points = 10000; 
 >> num_landmark_points = 50; 
@@ -694,12 +694,12 @@ _Torus example._ Let's build a witness stream instance for 10,000 random points 
 >> num_divisions = 100; 
 
 >> point_cloud = examples.PointCloudExamples.getRandomSphereProductPoints(num_points, 1, 2);
->> landmark_selector = api.Plex4.createRandomSelector(point_cloud, num_landmark_points);
+>> landmark_selector = api.Plex4.createMaxMinSelector(point_cloud, num_landmark_points);
 }}}
 The next command returns the landmark covering measure `R` from [Tutorial#Landmark_selection Landmark selection].  Often the value for _t,,max,,_ is chosen in proportion to `R`.
 {{{
 >> R = landmark_selector.getMaxDistanceFromPointsToLandmarks() 
-R = 1.1067          # Generally close to 1.1 
+R = 0.7033          # Generally close to 0.7 
 >> max_filtration_value = R / 8; 
 }}}
 
@@ -707,7 +707,7 @@ We create the witness stream.
 {{{
 >> stream = api.Plex4.createWitnessStream(landmark_selector, max_dimension,  max_filtration_value, num_divisions);  
 >> num_simplices = stream.getSize() 
-num_simplices = 1858          # Generally close to 2000
+num_simplices = 1164          # Generally close to 1200
 }}}
 We plot the Betti intervals.
 {{{
