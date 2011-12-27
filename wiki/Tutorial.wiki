@@ -251,7 +251,7 @@ We don't display the output from this command in the tutorial, because the repre
 
 See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solutions.
 
-_Exercise_1: 
+_Exercise 1_: 
 Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices_ (Hatcher 2002, page 107). _We recommend using a _3x3_ grid of 9 vertices. 
 
 _Exercise_:
