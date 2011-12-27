@@ -1107,7 +1107,7 @@ See the Matlab script `exercise_5_4_5.m` and the Matlab function `flatKleinDista
 _Exercise_:
 Sample points from an embedding of a double torus, that is, a surface of genus two, in _R^3^_. Build a lazy witness stream on this Euclidean metric space. Confirm the barcodes match the homology of a double torus. Choosing suitable parameters will not be easy.
 
-Solution_:
+_Solution_:
 See the Matlab script `exercise_5_4_6.m` and the Matlab function `getDoubleTorusPoints.m`. Thanks to Ulrich Bauer for this solution.
 
 
