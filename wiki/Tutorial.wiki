@@ -79,18 +79,18 @@ which are used in this tutorial.
 
 The folder `matlab_examples/tutorial_solutions` contains the following solution scripts to tutorial exercises.
 
-  * `exercise_3_1_1.m`
-  * `exercise_3_1_2.m`
-  * `exercise_3_1_3.m`
-  * `exercise_4_2_1.m`
-  * `exercise_4_2_2.m`
-  * `exercise_4_2_3.m`
-  * `exercise_5_1_2.m`
-  * `exercise_5_1_3.m`
-  * `exercise_5_4_4.m`
-  * `exercise_5_4_5.m`
-  * `exercise_5_4_6.m`
-  * `exercise_5_4_7.m`
+  * `exercise_1.m`
+  * `exercise_2.m`
+  * `exercise_3.m`
+  * `exercise_4.m`
+  * `exercise_5.m`
+  * `exercise_6.m`
+  * `exercise_8.m`
+  * `exercise_9.m`
+  * `exercise_16.m`
+  * `exercise_17.m`
+  * `exercise_18.m`
+  * `exercise_19.m`
   * `flatKleinDistanceMatrix.m`
   * `flatTorusDistanceMatrix.m`
   * `getDoubleTorusPoints.m`
@@ -1012,7 +1012,7 @@ _Exercise_:
 Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices_ (Hatcher 2002, page 107). _We recommend using a _3x3_ grid of 9 vertices. 
 
 _Solution_:
-See the Matlab script `exercise_3_1_1.m` in folder `tutorial_solutions` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides.
+See the Matlab script `exercise_1.m` in folder `tutorial_solutions` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides.
 
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/torus.png
 
@@ -1020,7 +1020,7 @@ _Exercise_:
 Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
 
 _Solution_:
-See the Matlab script `exercise_3_1_2.m` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides, with left and right sides identified with a twist. 
+See the Matlab script `exercise_2.m` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides, with left and right sides identified with a twist. 
 
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/klein.png
 
@@ -1028,7 +1028,7 @@ _Exercise_:
 Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
 
 _Solution_:
-See the Matlab script `exercise_3_1_3.m` for a solution. We use the minimal triangulation for the projective plane, which contains 6 vertices.
+See the Matlab script `exercise_3.m` for a solution. We use the minimal triangulation for the projective plane, which contains 6 vertices.
 
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/projPlane.png
 
@@ -1036,19 +1036,19 @@ _Exercise_:
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat torus. Create an explicit metric space from this distance matrix.
 
 _Solution_:
-See the Matlab script `exercise_4_2_1.m` and the Matlab function `flatTorusDistanceMatrix.m` for a solution.
+See the Matlab script `exercise_4.m` and the Matlab function `flatTorusDistanceMatrix.m` for a solution.
 
 _Exercise_:
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat Klein bottle. Create an explicit metric space from this distance matrix.
 
 _Solution_:
-See the Matlab script `exercise_4_2_2.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
+See the Matlab script `exercise_5.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
 
 _Exercise_:
 Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the unit sphere _S^2^_ in _R^3^_ and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the projective plane. Create an explicit metric space from this distance matrix.
 
 _Solution_:
-See the Matlab script `exercise_4_2_3.m` and the Matlab function `projPlaneDistanceMatrix.m` for a solution.
+See the Matlab script `exercise_6.m` and the Matlab function `projPlaneDistanceMatrix.m` for a solution.
 
 _Exercise_:
 Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the size of the Vietoris-Rips stream and the time of computation grow. Either increasing _t,,max,,_ from 0.9 to 1 or increasing _d,,max,,_ from 3 to 4 roughly doubles the size of the Vietoris-Rips stream. 
@@ -1060,13 +1060,13 @@ _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,2,,_. Build a Vietoris-Rips stream to confirm your answer. 
 
 _Solution_:
-See the Matlab script `exercise_5_1_2.m` for a solution. Our planar dataset is 6 evenly spaced points on the unit circle. We build a Vietoris-Rips stream which, at the correct filtration value, is an octahedron.
+See the Matlab script `exercise_8.m` for a solution. Our planar dataset is 6 evenly spaced points on the unit circle. We build a Vietoris-Rips stream which, at the correct filtration value, is an octahedron.
 
 _Exercise_:
 Find a planar dataset _Z_ and a filtration value _t_ such that _VR(Z,t)_ has nonzero _Betti,,6,,_. When building a Vietoris-Rips stream to confirm your answer, don't forget to choose _d,,max,, = 7_. 
 
 _Solution_:
-See the Matlab script `exercise_5_1_3.m` for a solution. Our planar dataset is 14 evenly spaced points on the unit circle. We build a Vietoris-Rips stream which, at the correct filtration value, is homeomorphic to the 6-sphere. It has 14 vertices because it is obtained by suspending the 0-sphere six times, for a total of _2 + (6 x 2) = 14_ vertices.
+See the Matlab script `exercise_9.m` for a solution. Our planar dataset is 14 evenly spaced points on the unit circle. We build a Vietoris-Rips stream which, at the correct filtration value, is homeomorphic to the 6-sphere. It has 14 vertices because it is obtained by suspending the 0-sphere six times, for a total of _2 + (6 x 2) = 14_ vertices.
 
 _Exercise_:
 Let _Z_ be the point cloud from [Tutorial#Euclidean_metric_spaces Euclidean metric spaces], corresponding to the house point cloud. Suppose we are using sequential maxmin to select a set _L_ of 3 landmarks, and the first (randomly selected) landmark is _(1,0)_. Find by hand the other two landmarks in _L_. 
@@ -1119,7 +1119,7 @@ _Exercise_:
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat torus. Create an explicit metric space from this distance matrix.
 
 _Solution_:
-See the Matlab script `exercise_5_4_4.m` and the Matlab function `flatTorusDistanceMatrix.m` for a solution.
+See the Matlab script `exercise_16.m` and the Matlab function `flatTorusDistanceMatrix.m` for a solution.
 
 _Exercise_:
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat Klein bottle. Create an explicit metric space from this distance matrix.
@@ -1127,7 +1127,7 @@ Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab funct
 Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field of two elements and over coefficients in the field of three elements.
 
 _Solution_:
-See the Matlab script `exercise_5_4_5.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
+See the Matlab script `exercise_17.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
 
 _Exercise_:
 Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the unit sphere _S^2^_ in _R^3^_ and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the projective plane. Create an explicit metric space from this distance matrix. 
@@ -1135,13 +1135,13 @@ Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab funct
 Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a projective plane, over coefficients in the field of two elements and over coefficients in the field of three elements.
 
 _Solution_:
-See the Matlab script `exercise_5_4_6.m` and the Matlab function `projPlaneDistanceMatrix.m` for a solution.
+See the Matlab script `exercise_18.m` and the Matlab function `projPlaneDistanceMatrix.m` for a solution.
 
 _Exercise_:
 Sample points from an embedding of a double torus, that is, a surface of genus two, in _R^3^_. Build a lazy witness stream on this Euclidean metric space. Confirm the barcodes match the homology of a double torus. Choosing suitable parameters will not be easy.
 
 _Solution_:
-See the Matlab script `exercise_5_4_7.m` and the Matlab function `getDoubleTorusPoints.m`. Thanks to Ulrich Bauer for this solution.
+See the Matlab script `exercise_19.m` and the Matlab function `getDoubleTorusPoints.m`. Thanks to Ulrich Bauer for this solution.
 
 
 
