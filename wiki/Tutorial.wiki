@@ -84,14 +84,17 @@ The folder `matlab_examples/tutorial_solutions` contains the following solution 
   * `exercise_3_1_3.m`
   * `exercise_4_2_1.m`
   * `exercise_4_2_2.m`
+  * `exercise_4_2_3.m`
   * `exercise_5_1_2.m`
   * `exercise_5_1_3.m`
   * `exercise_5_4_4.m`
   * `exercise_5_4_5.m`
-  * `exercise_5_4_5.m`
+  * `exercise_5_4_6.m`
+  * `exercise_5_4_7.m`
   * `flatKleinDistanceMatrix.m`
   * `flatTorusDistanceMatrix.m`
   * `getDoubleTorusPoints.m`
+  * `projPlaneDistanceMatrix.m`
 
 See Appendix [Tutorial#Exercise_solutions Exercise Solutions] for exercise solutions.
 
@@ -496,6 +499,13 @@ One way to produce a Klein bottle is to take a square `[0, 1] x [0, 1]` and then
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat Klein bottle. Create an explicit metric space from this distance matrix.
 
 This exercise is continued by an exercise in [Tutorial#Lazy_witness_streams Lazy witness streams].
+
+_Exercise_:
+One way to produce a projective plane is to take the unit sphere _S^2^_ in _R^3^_ and then identify antipodal points. More explicitly, the quotient space (_S^2^_ / (_x_ \~ _-x_) is a projective plane. The Euclidean metric on _S^2^_ induces a metric on the projective plane.
+
+Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the unit sphere _S^2^_ in _R^3^_ and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the projective plane. Create an explicit metric space from this distance matrix. 
+
+This exercise is continued by an exercise in [Tutorial#Lazy_witness_streams Lazy witness streams]. 
 
 
 
