@@ -811,7 +811,16 @@ One way to produce a Klein bottle is to take a square `[0, 1] x [0, 1]` and then
 
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat Klein bottle. Create an explicit metric space from this distance matrix.
 
-Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field of two elements and over coefficients in the field of three elements. 
+Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field of two elements and over coefficients in the field of three elements.
+
+_Exercise_:
+The first part of this exercise is the same as an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces].
+
+One way to produce a projective plane is to take the unit sphere _S^2^_ in _R^3^_ and then identify antipodal points. More explicitly, the quotient space (_S^2^_ / (_x_ ~ _-x_) is a projective plane. The Euclidean metric on _S^2^_ induces a metric on the projective plane.
+
+Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the unit sphere _S^2^_ in _R^3^_ and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the projective plane. Create an explicit metric space from this distance matrix. 
+
+Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a projective plane, over coefficients in the field of two elements and over coefficients in the field of three elements.
 
 _Exercise_:
 Sample points from an embedding of a double torus, that is, a surface of genus two, in _R^3^_. Build a lazy witness stream on this Euclidean metric space. Confirm the barcodes match the homology of a double torus. Choosing suitable parameters will not be easy.
@@ -1036,6 +1045,12 @@ _Solution_:
 See the Matlab script `exercise_4_2_2.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
 
 _Exercise_:
+Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the unit sphere _S^2^_ in _R^3^_ and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the projective plane. Create an explicit metric space from this distance matrix.
+
+_Solution_:
+See the Matlab script `exercise_4_2_3.m` and the Matlab function `projPlaneDistanceMatrix.m` for a solution.
+
+_Exercise_:
 Slowly increase the values for _t,,max,,_, _d,,max,,_ and note how quickly the size of the Vietoris-Rips stream and the time of computation grow. Either increasing _t,,max,,_ from 0.9 to 1 or increasing _d,,max,,_ from 3 to 4 roughly doubles the size of the Vietoris-Rips stream. 
 
 _Solution_:
@@ -1115,10 +1130,18 @@ _Solution_:
 See the Matlab script `exercise_5_4_5.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
 
 _Exercise_:
+Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the unit sphere _S^2^_ in _R^3^_ and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the projective plane. Create an explicit metric space from this distance matrix. 
+
+Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a projective plane, over coefficients in the field of two elements and over coefficients in the field of three elements.
+
+_Solution_:
+See the Matlab script `exercise_5_4_6.m` and the Matlab function `projPlaneDistanceMatrix.m` for a solution.
+
+_Exercise_:
 Sample points from an embedding of a double torus, that is, a surface of genus two, in _R^3^_. Build a lazy witness stream on this Euclidean metric space. Confirm the barcodes match the homology of a double torus. Choosing suitable parameters will not be easy.
 
 _Solution_:
-See the Matlab script `exercise_5_4_6.m` and the Matlab function `getDoubleTorusPoints.m`. Thanks to Ulrich Bauer for this solution.
+See the Matlab script `exercise_5_4_7.m` and the Matlab function `getDoubleTorusPoints.m`. Thanks to Ulrich Bauer for this solution.
 
 
 
