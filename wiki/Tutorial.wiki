@@ -179,7 +179,7 @@ We print the total number of simplices in the complex.
 num_simplices = 6
 }}}
 
-We create an object that will compute the homology of our complex. The first input parameter 3 indicates that homology will be computed in dimensions 0, 1, and 2 — that is, in all dimensions strictly less than 3. The second input 2 means that we will compute homology with coefficients in the field of two elements, and this input can be any prime number.
+We create an object that will compute the homology of our complex. The first input parameter 3 indicates that homology will be computed in dimensions 0, 1, and 2 — that is, in all dimensions strictly less than 3. The second input 2 means that we will compute homology with _Z/2Z_ coefficients, and this input can be any prime number.
 {{{
 >> persistence = api.Plex4.getModularSimplicialAlgorithm(3, 2);
 }}}
@@ -255,10 +255,10 @@ _Exercise_:
 Build a simplicial complex homeomorphic to the torus. Compute its Betti numbers. _Hint: You will need at least 7 vertices_ (Hatcher 2002, page 107). _We recommend using a _3x3_ grid of 9 vertices. 
 
 _Exercise_:
-Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
+Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over _Z/2Z_ coefficients but different Betti numbers over _Z/3Z_ coefficients. 
 
 _Exercise_:
-Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
+Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over _Z/2Z_ and _Z/3Z_ coefficients.
 
 
 
@@ -287,7 +287,7 @@ We build a house, with the vertices and edges on the square appearing at time 0,
 >> stream.addElement([3, 4, 5], 7);
 >> stream.finalizeStream();
 }}}
-We get the persistence algorithm with coefficients in the field of two elements
+We get the persistence algorithm with _Z/2Z_ coefficients
 {{{
 >> persistence = api.Plex4.getModularSimplicialAlgorithm(3, 2);
 }}}
@@ -799,10 +799,10 @@ _Exercise_:
 In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a flat torus. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a torus. 
 
 _Exercise_:
-In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a flat Klein bottle. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field of two elements and over coefficients in the field of three elements.
+In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a flat Klein bottle. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over _Z/2Z_ and _Z/3Z_ coefficients.
 
 _Exercise_:
-In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a projective plane. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a projective plane, over coefficients in the field of two elements and over coefficients in the field of three elements.
+In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a projective plane. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a projective plane, over _Z/2Z_ and _Z/3Z_ coefficients.
 
 _Exercise_:
 Sample points from an embedding of a double torus, that is, a surface of genus two, in _R^3^_. Build a lazy witness stream on this Euclidean metric space. Confirm the barcodes match the homology of a double torus. Choosing suitable parameters will not be easy.
@@ -999,7 +999,7 @@ See the Matlab script `exercise_1.m` in folder `tutorial_solutions` for a soluti
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/torus.png
 
 _Exercise_:
-Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over coefficients mod 2 but different Betti numbers over coefficients mod 3. 
+Build a simplicial complex homeomorphic to the Klein bottle. Check that it has the same Betti numbers as the torus over _Z/2Z_ coefficients but different Betti numbers over _Z/3Z_ coefficients. 
 
 _Solution_:
 See the Matlab script `exercise_2.m` for a solution. We use 9 vertices, which we think of as a _3x3_ grid numbered as a telephone keypad. We identify opposite sides, with left and right sides identified with a twist. 
@@ -1007,7 +1007,7 @@ See the Matlab script `exercise_2.m` for a solution. We use 9 vertices, which we
 http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/klein.png
 
 _Exercise_:
-Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over coefficients both mod 2 and 3.
+Build a simplicial complex homeomorphic to the projective plane. Find its Betti numbers over _Z/2Z_ and _Z/3Z_ coefficients.
 
 _Solution_:
 See the Matlab script `exercise_3.m` for a solution. We use the minimal triangulation for the projective plane, which contains 6 vertices.
@@ -1099,13 +1099,13 @@ _Solution_:
 See the Matlab script `exercise_16.m` and the Matlab function `flatTorusDistanceMatrix.m` for a solution.
 
 _Exercise_:
-In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a flat Klein bottle. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field _Z/2Z_ and over coefficients in the field of three elements.
+In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a flat Klein bottle. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over _Z/2Z_ and _Z/3Z_ coefficients.
 
 _Solution_:
 See the Matlab script `exercise_17.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
 
 _Exercise_:
-In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a projective plane. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a projective plane, over coefficients in the field of two elements and over coefficients in the field of three elements.
+In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a projective plane. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a projective plane, over _Z/2Z_ and _Z/3Z_ coefficients.
 
 _Solution_:
 See the Matlab script `exercise_18.m` and the Matlab function `projPlaneDistanceMatrix.m` for a solution.
