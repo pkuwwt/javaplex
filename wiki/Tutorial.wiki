@@ -1099,7 +1099,7 @@ _Solution_:
 See the Matlab script `exercise_16.m` and the Matlab function `flatTorusDistanceMatrix.m` for a solution.
 
 _Exercise_:
-In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a flat Klein bottle. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field of two elements and over coefficients in the field of three elements.
+In an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces] you created an explicit metric space for 1,000 random points on a flat Klein bottle. Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field _Z/2Z_ and over coefficients in the field of three elements.
 
 _Solution_:
 See the Matlab script `exercise_17.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
