@@ -494,14 +494,14 @@ Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab funct
 This exercise is continued by an exercise in [Tutorial#Lazy_witness_streams Lazy witness streams].
 
 _Exercise_:
-One way to produce a Klein bottle is to take a square `[0, 1] x [0, 1]` and then identify opposite edges, with the left and right sides identified with a twist. This is called a flat Klein bottle. More explicitly, the quotient space (`[0, 1] x [0, 1]`) / \~, where _(0, y) ~ (1, 1 - y)_ for all _y_ in `[0, 1]` and where _(x, 0) ~ (x, 1)_ for all _x_ in `[0, 1]`, is a flat Klein bottle. The Euclidean metric on `[0, 1] x [0, 1]` induces a metric on the flat Klein bottle. For example, in the induced metric on the flat Klein bottle, the distance between _(0, 4/10)_ and _(1, 6/10)_ is zero, since these two points are identified. The distance between _(1/10, 4/10)_ and _(9/10, 6/10)_ is _2/10_, by passing through the point _(0, 4/10) ~ (1, 6/10)_.
+One way to produce a Klein bottle is to take a square `[0, 1] x [0, 1]` and then identify opposite edges, with the left and right sides identified with a twist. This is called a flat Klein bottle. More explicitly, the quotient space (`[0, 1] x [0, 1]`) / ~, where _(0, y) ~ (1, 1 - y)_ for all _y_ in `[0, 1]` and where _(x, 0) ~ (x, 1)_ for all _x_ in `[0, 1]`, is a flat Klein bottle. The Euclidean metric on `[0, 1] x [0, 1]` induces a metric on the flat Klein bottle. For example, in the induced metric on the flat Klein bottle, the distance between _(0, 4/10)_ and _(1, 6/10)_ is zero, since these two points are identified. The distance between _(1/10, 4/10)_ and _(9/10, 6/10)_ is _2/10_, by passing through the point _(0, 4/10) ~ (1, 6/10)_.
 
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat Klein bottle. Create an explicit metric space from this distance matrix.
 
 This exercise is continued by an exercise in [Tutorial#Lazy_witness_streams Lazy witness streams].
 
 _Exercise_:
-One way to produce a projective plane is to take the unit sphere _S^2^_ in _R^3^_ and then identify antipodal points. More explicitly, the quotient space (_S^2^_ / (_x_ \~ _-x_) is a projective plane. The Euclidean metric on _S^2^_ induces a metric on the projective plane.
+One way to produce a projective plane is to take the unit sphere _S^2^_ in _R^3^_ and then identify antipodal points. More explicitly, the quotient space (_S^2^_ / (_x_ ~ _-x_) is a projective plane. The Euclidean metric on _S^2^_ induces a metric on the projective plane.
 
 Write a Matlab script (or function---see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the unit sphere _S^2^_ in _R^3^_ and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the projective plane. Create an explicit metric space from this distance matrix. 
 
@@ -807,7 +807,7 @@ Build a lazy witness stream on this explicit metric space with 50 landmarks chos
 _Exercise_:
 The first part of this exercise is the same as an exercise in [Tutorial#Explicit_metric_spaces Explicit metric spaces].
 
-One way to produce a Klein bottle is to take a square `[0, 1] x [0, 1]` and then identify opposite edges, with the left and right sides identified with a twist. This is called a flat Klein bottle. More explicitly, the quotient space (`[0, 1] x [0, 1]`) / \~, where _(0, y) ~ (1, 1 - y)_ for all _y_ in `[0, 1]` and where _(x, 0) ~ (x, 1)_ for all _x_ in `[0, 1]`, is a flat Klein bottle. The Euclidean metric on `[0, 1] x [0, 1]` induces a metric on the flat Klein bottle. For example, in the induced metric on the flat Klein bottle, the distance between _(0, 4/10)_ and _(1, 6/10)_ is zero, since these two points are identified. The distance between _(1/10, 4/10)_ and _(9/10, 6/10)_ is _2/10_, by passing through the point _(0, 4/10) ~ (1, 6/10)_.
+One way to produce a Klein bottle is to take a square `[0, 1] x [0, 1]` and then identify opposite edges, with the left and right sides identified with a twist. This is called a flat Klein bottle. More explicitly, the quotient space (`[0, 1] x [0, 1]`) / ~, where _(0, y) ~ (1, 1 - y)_ for all _y_ in `[0, 1]` and where _(x, 0) ~ (x, 1)_ for all _x_ in `[0, 1]`, is a flat Klein bottle. The Euclidean metric on `[0, 1] x [0, 1]` induces a metric on the flat Klein bottle. For example, in the induced metric on the flat Klein bottle, the distance between _(0, 4/10)_ and _(1, 6/10)_ is zero, since these two points are identified. The distance between _(1/10, 4/10)_ and _(9/10, 6/10)_ is _2/10_, by passing through the point _(0, 4/10) ~ (1, 6/10)_.
 
 Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab functions]) that first selects 1,000 random points from the square `[0, 1] x [0, 1]` and then computes the 1,000 x 1,000 distance matrix for these points under the induced metric on the flat Klein bottle. Create an explicit metric space from this distance matrix.
 
