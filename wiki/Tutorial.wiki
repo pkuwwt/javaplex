@@ -426,7 +426,7 @@ We plot the points.
 >> axis equal
 }}}
 
-_Torus example._ We select 2,000 points randomly from a torus in _R^3^$ with inner radius 1 and outer radius 2. The first input is the number of points, the second input is the inner radius, and the third input is the outer radius
+_Torus example._ We select 2,000 points randomly from a torus in _R^3^_ with inner radius 1 and outer radius 2. The first input is the number of points, the second input is the inner radius, and the third input is the outer radius
 {{{
 >> point_cloud = examples.PointCloudExamples.getRandomTorusPoints(2000, 1, 2);
 }}}
@@ -1103,6 +1103,12 @@ Build a lazy witness stream on this explicit metric space with 50 landmarks chos
 
 _Solution_:
 See the Matlab script `exercise_5_4_5.m` and the Matlab function `flatKleinDistanceMatrix.m` for a solution.
+
+_Exercise_:
+Sample points from an embedding of a double torus, that is, a surface of genus two, in _R^3^_. Build a lazy witness stream on this Euclidean metric space. Confirm the barcodes match the homology of a double torus. Choosing suitable parameters will not be easy.
+
+Solution_:
+See the Matlab script `exercise_5_4_6.m` and the Matlab function `getDoubleTorusPoints.m`. Thanks to Ulrich Bauer for this solution.
 
 
 
