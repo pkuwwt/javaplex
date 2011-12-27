@@ -803,6 +803,9 @@ Write a Matlab script (or function - see [Tutorial#Matlab_functions Matlab funct
 
 Build a lazy witness stream on this explicit metric space with 50 landmarks chosen via sequential maxmin and with _v = 1_.  Confirm the barcodes match the homology of a Klein bottle, over coefficients in the field of two elements and over coefficients in the field of three elements. 
 
+_Exercise_:
+Sample points from an embedding of a double torus, that is, a surface of genus two, in _R^3_. Build a lazy witness stream on this Euclidean metric space. Confirm the barcodes match the homology of a double torus. Choosing suitable parameters will not be easy.
+
 
 
 
