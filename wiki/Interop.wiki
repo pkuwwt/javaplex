@@ -92,3 +92,5 @@ Alternatively, one may use an IDE such as [http://www.eclipse.org Eclipse] and i
 The Processing IDE and language, focused for producing programmatic art and graphics, works on a Java basis and can access arbitrary Java libraries. With a thin wrapper with some metadata, Java libraries can be packaged as plugins for Processing, making them even easier to use.
 
 As of version 4.1.0, javaPlex includes a Processing library plugin. Install it where Processing expects its plugin files, and you can import and use javaPlex primitives - as demonstrated in the Java section above - from your Processing sketch. We also include an example sketch in the javaPlex distribution demonstrating how to use javaPlex form Processing.
+
+http://javaplex.googlecode.com/svn/trunk/reports/processing-examples/Processing-Screenshot.png
