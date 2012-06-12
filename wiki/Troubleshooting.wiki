@@ -10,4 +10,4 @@ The following command returns your maximum heap size in bytes.
 ans = 130875392
 }}}
 
-For example, to increase the maximum heap size to 1GB, create a file named java.opts in your Matlab directory which contains the text `-Xmx256m` and then restart Matlab. For more information, please see this link: http://www.mathworks.com/support/solutions/en/data/1-18I2C/ 
+For example, to increase the maximum heap size to 1GB, create a file named java.opts in your Matlab directory which contains the text `-Xmx1000m` and then restart Matlab. For more information, please see this link: http://www.mathworks.com/support/solutions/en/data/1-18I2C/ 
