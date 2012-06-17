@@ -1,5 +1,10 @@
 #summary Calling javaPlex from other languages
 
+
+=GTS 2012 Participants=
+  * Please see the [http://code.google.com/p/javaplex/wiki/GTS2012 instructions page] for information on setup and the tutorial
+
+
 = Introduction =
 
 `javaPlex` can be called from any Java-based system. Below we show some examples.
