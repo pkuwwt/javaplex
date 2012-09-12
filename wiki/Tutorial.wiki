@@ -362,7 +362,7 @@ http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/house.png
 
 The filtration times are on the horizontal axis. The _Betti_k_ number of the stream at filtration time _t_ is the number of intervals in the dimension _k_ plot that intersect a vertical line through _t_. Check that the displayed intervals agree with the filtration times we built into the house stream. At time 0, a connected component and a 1-dimensional hole form. At time 1, a second connected component appears, which joins to the first at time 2. A second 1-dimensional hole forms at time 3, and closes at time 7. 
 
-An important remark is that the methods `addElement` and `removeElementIfPresent` do not necessarily enforce the definition of a stream. They allow us to build inconsistent complexes in which some simplex _s_ in _X(t)_ contains a subsimplex _s'_ not in _X(t)_, meaning that _X(t)_ is not a simplicial complex. The method `validateVerbose` returns `1` if our stream is consistent and returns `0` with explanation if not. 
+_Remark._ The methods `addElement` and `removeElementIfPresent` do not necessarily enforce the definition of a stream. They allow us to build inconsistent complexes in which some simplex _s_ in _X(t)_ contains a subsimplex _s'_ not in _X(t)_, meaning that _X(t)_ is not a simplicial complex. The method `validateVerbose` returns `1` if our stream is consistent and returns `0` with explanation if not. 
 {{{
 >> stream.validateVerbose() 
 ans = 1 
@@ -372,6 +372,15 @@ Filtration index of face [4,5] exceeds that of element [1,4,5] (3 > 0)
 Stream does not contain face [1,5] of element [1,4,5] 
 ans = 0
 }}}
+
+_Remark._ If you want to use filtration times that are not integers, then you first need to specify an upper bound on the filtration times in your complex. This is demonstrated below, where the non-integer filtration time is 17.23 and the upper bound is 100.
+
+{{{
+>> stream = api.Plex4.createExplicitSimplexStream(100);
+>> stream.addVertex(1, 17.23);
+>> stream.finalizeStream();
+}}}
+
 
 
 = Point cloud data =
