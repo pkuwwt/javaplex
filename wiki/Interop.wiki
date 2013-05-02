@@ -70,7 +70,7 @@ public class WitnessComplexDemo {
 		
 		AbstractPersistenceAlgorithm<Simplex> algorithm = Plex4.getDefaultSimplicialAlgorithm(d + 1);
 		
-		BarcodeCollection<Integer> intervals = algorithm.computeIntervals(stream);
+		BarcodeCollection<Double> intervals = algorithm.computeIntervals(stream);
 		
 		System.out.println("\nBarcodes for " + d + "-sphere:");
 		System.out.println(intervals);
