@@ -3,7 +3,7 @@
 
 = Introduction =
 
-The pdf version of this tutorial, which contains the same information as this document but is the recommended format, is available at http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/javaplex_tutorial.pdf.
+The pdf version of this tutorial, which is the recommended format, is available at http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/javaplex_tutorial.pdf.
 
 == javaPlex ==
 
