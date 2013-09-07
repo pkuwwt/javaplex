@@ -3,7 +3,7 @@
 
 = Introduction =
 
-The pdf version of this tutorial, which basically contains the same information as this document, is available at http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/javaplex_tutorial.pdf.
+The pdf version of this tutorial, which contains the same information as this document but is the recommended format, is available at http://javaplex.googlecode.com/svn/trunk/reports/javaplex_tutorial/javaplex_tutorial.pdf.
 
 == javaPlex ==
 
@@ -15,7 +15,7 @@ If you are interested in javaPlex, then you may also be interested in the softwa
 
 Some of the exercises in this tutorial are borrowed from Vin de Silva's _Plexercises_, available at http://comptop.stanford.edu/u/programs/Plexercises2.pdf.
 
-Please email Henry at `henrya@math.stanford.edu` or Andrew at `atausz@stanford.edu` if you have questions about this tutorial.
+Please email Henry at `henrya@ima.umn.edu` or Andrew at `atausz@stanford.edu` if you have questions about this tutorial.
 
 
 == License ==
@@ -1002,7 +1002,7 @@ core50 =
 
 With _k = 50_, we expect the densest points to be slightly larger than the 25-th prime, which is 97. 
 
-_Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most efficient way to calculate _p,,k,,_ for large datasets. There is a faster file `kDensity.m` for this purpose, which uses the kd-tree data structure. It is not included in the tutorial because it requires one to download a kd-tree package for Matlab, available at http://www.mathworks.com/matlabcentral/fileexchange/21512-kd-tree-for-matlab. Please email Henry at `henrya@math.stanford.edu` if you're interested in using `kDensity.m`.
+_Note:_ As its name suggests, the m-file `kDensitySlow.m` is not the most efficient way to calculate _p,,k,,_ for large datasets. There is a faster file `kDensity.m` for this purpose, which uses the kd-tree data structure. It is not included in the tutorial because it requires one to download a kd-tree package for Matlab, available at http://www.mathworks.com/matlabcentral/fileexchange/21512-kd-tree-for-matlab. Please email Henry at `henrya@ima.umn.edu` if you're interested in using `kDensity.m`.
 
 
 
