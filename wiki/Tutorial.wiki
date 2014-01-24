@@ -15,7 +15,7 @@ If you are interested in javaPlex, then you may also be interested in the softwa
 
 Some of the exercises in this tutorial are borrowed from Vin de Silva's _Plexercises_, available at http://comptop.stanford.edu/u/programs/Plexercises2.pdf.
 
-Please email Henry at `henrya@ima.umn.edu` or Andrew at `atausz@stanford.edu` if you have questions about this tutorial.
+Please email Henry at `henrya@ima.umn.edu` or Andrew at `atausz@alumni.stanford.edu` if you have questions about this tutorial.
 
 
 == License ==
@@ -941,7 +941,7 @@ The persistence algorithm that computes barcodes can also find a representative 
 
 A core subset of a dataset is a collection of the densest points, such as _X^5^(300,30)_ in [Tutorial#Example_with_real_data Example with real data]. Since there are many density estimators, and since we can choose any number of the densest points, a dataset has a variety of core subsets. In this appendix we discuss how to create core subsets. 
 
-Real datasets can be very noisy, and outlier points can signiÞcantly alter the computed topology. Therefore, instead of trying to approximate the topology of an entire dataset, we often proceed as follows. We create a family of core subsets and identify their topologies. Looking at a variety of core subsets can give a good picture of the entire dataset. 
+Real datasets can be very noisy, and outlier points can significantly alter the computed topology. Therefore, instead of trying to approximate the topology of an entire dataset, we often proceed as follows. We create a family of core subsets and identify their topologies. Looking at a variety of core subsets can give a good picture of the entire dataset. 
 
 See Carlsson et al. (2008) and de Silva and Carlsson (2004) for an example using multiple core subsets. The dataset contains high-contrast patches from natural images. The authors use three density estimators. As they change from the most global to the most local density estimate, the topologies of the core subsets change from a circle, to three intersecting circles, to a Klein bottle. 
 
