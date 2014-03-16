@@ -207,7 +207,7 @@ Dimension: 0
 }}}
 This gives us the expected Betti numbers _Betti,,0,,=1_ and _Betti,,1,,=1_.
 
-We can also compute a representative cycle for each barcode.
+The persistence algorithm computing intervals can also find a representative cycle for each interval. However, there is no guarantee that the produced representative will be geometrically nice.
 {{{
 >> circle_intervals = persistence.computeAnnotatedIntervals(stream)
 circle_intervals =
@@ -945,11 +945,6 @@ The function `eulerCharacteristic.m` accepts an explicit simplex stream and its 
 The Euler characteristic is 2 = 8 - 28 + 56 - 70 + 56 - 28 + 8, using the alternating sum of cells.
 The Euler characteristic is 2 = 1 - 0 + 0 - 0 + 0 - 0 + 1, using the alternating sum of Betti numbers.
 }}}
-
-
-== Representative cycles ==
-
-The persistence algorithm that computes barcodes can also find a representative cycle for each barcode. We do several examples of this in [Tutorial#Explicit_simplex_streams Explicit simplex streams]. However, there is no guarantee that the produced representative will be geometrically nice. 
 
 
 
