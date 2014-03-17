@@ -949,7 +949,7 @@ The Euler characteristic is 2 = 1 - 0 + 0 - 0 + 0 - 0 + 1, using the alternating
 
 == Displaying the simplices in a stream ==
 
-It is possible to display the simplices in a stream, along with their filtration times. For an example of how to do this, please see the file http://code.google.com/p/javaplex/source/browse/trunk/src/matlab/for_distribution/basic_examples/dump_example.m in the folder basic_examples.
+It is possible to display the simplices in a stream, along with their filtration times. You can also obtain the vertices of each simplex as a Matlab matrix. For an example of how to do this, please see the file http://code.google.com/p/javaplex/source/browse/trunk/src/matlab/for_distribution/basic_examples/dump_example.m in the folder basic_examples.
 
 
 = Dense core subsets =
